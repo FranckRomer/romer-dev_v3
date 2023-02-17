@@ -7,6 +7,7 @@ import { useTheme } from 'next-themes'
 const Header = () => {
     const { systemTheme, theme, setTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
+    const [menu, setMenu] = useState(false)
 
     useEffect(() => {
         setMounted(true)
@@ -27,7 +28,7 @@ const Header = () => {
 
             return (
                 <Button
-                    className='dark:bg-neutral-600'
+                    className='dark:bg-neutral-800'
                     onClick={() => setTheme('light')}
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -52,7 +53,7 @@ const Header = () => {
     }
 
     return (
-        <header className='fixed h-12 flex item-center justify-between   items-center  top-0 left-0 right-0 max-w-screen-2xl mx-auto py-8 px-4 bg-black  z-40 '>
+        <header className='sticky h-12 flex item-center justify-between   items-center  top-0 left-0 right-0 w-full mx-auto py-8 px-4 bg-orange-50 dark:bg-neutral-900  z-40 '>
             <Link href={"/"} className='flex items-center gap-2 ' >
                 {/* <h3>Romer-Dev.com</h3>
                 <p>Portfolio</p> */}
@@ -60,28 +61,79 @@ const Header = () => {
                     // Absolute URL
                     src='/romero.png'
                     alt='User profile picture'
-                    width={40}
-                    height={40}
+                    width={30}
+                    height={30}
                 />
-                <h3 className='text-white font-semibold border-l-2 p-2  border-white text-2xl'>ROMER</h3>
+                <h3 className='text-stone-900 dark:text-white font-semibold border-l-2 p-2 border-stone-500  dark:border-white text-xl'>ROMER</h3>
             </Link>
-            <ul className=' gap-7 items-center text-xl hidden sm:flex' >
-                {navigations.map(nav => (
-                    <Link
-                        key={0}
-                        href={nav.path}
-                        className='font-semibold text-gray-300 hover:text-white dark:text-gray-300 dark:hover:text-white hover:underline'
-                    >
-                        {nav.label}
-                    </Link>
-                ))}
-            </ul>
-            <div className='flex gap-6'>
+
+            <div className='flex gap-6 '>
                 {renderThemeChanger()}
-                <div className='sm:hidden flex items-center justify-center'>
-                    <h3>Menu</h3>
+                <div className='flex items-center'>
+                    <Button className=' bg-gray-200 dark:bg-neutral-800 '>
+                        <Link href={"/contact"}>
+                            <Image
+                                key={0}
+                                className='w-8 dark:invert'
+                                src='/iconos/contacto2.png'
+                                alt='Menu'
+                                width={60}
+                                height={60}
+                            />
+                        </Link>
+                    </Button>
+                </div>
+
+                <div className=' ' onClick={() => setMenu(!menu)}>
+                    <Button className=' bg-gray-200 dark:bg-neutral-800 '>
+                        <Image
+                            key={0}
+                            className='w-8 dark:invert'
+                            src='/iconos/menu3.png'
+                            alt='Menu'
+                            width={60}
+                            height={60}
+                        />
+                    </Button>
                 </div>
             </div>
+            {/* //?------------------------------------------- */}
+            {menu ?
+                <div>
+                    <div
+                        className='fixed top-0 left-0 right-0 bottom-0 h-screen w-screen '
+                        onClick={()=>setMenu(false)}
+                    ></div>
+
+                    <div className='absolute top-14  right-8 bg-black/75 border rounded-md' >
+                        {/* <div className='flex justify-end m-8'>
+                        <Button onClick={() => setMenu(false)}>
+                            <Image
+                                key={0}
+                                className='w-8'
+                                src='/iconos/cerrar.png'
+                                alt='Menu'
+                                width={60}
+                                height={60}
+                            />
+                        </Button>
+                    </div> */}
+                        <ul className=' gap-7 items-center text-xl grid' >
+                            {navigations.map(nav => (
+                                <Link
+                                    key={0}
+                                    href={nav.path}
+                                    className='font-semibold text-neutral-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline transition-all duration-200'
+                                >
+                                    {nav.label}
+                                </Link>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+                :
+                ""
+            }
         </header>
     )
 }

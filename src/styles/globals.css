@@ -10,11 +10,22 @@
         @apply bg-transparent;
     }
     body{
-        @apply transition-all duration-500 max-w-screen-2xl mx-auto bg-orange-50 dark:bg-neutral-900 dark:text-amber-50 ;
+        @apply transition-all duration-500 max-w-5xl mx-auto bg-orange-50 dark:bg-neutral-900 dark:text-amber-50 animate-born;
         /* @apply dark: bg-red-400 dark: text-blue-800; */
     }
 }
 
+
+.animate-spin-slow {
+    animation: spin-slow 30s linear infinite;
+  }
+
+.bg-azul-negro{
+    background: linear-gradient(107.56deg, #2F3F80 0%, #000001 100%);
+}
+.bg-blanco-azul{
+    background: linear-gradient(107.56deg, #fff 0%, #2F3F80 100%);
+}
 @keyframes spin-slow {
     from {
       transform: rotate(0deg);
@@ -22,8 +33,17 @@
     to {
       transform: rotate(360deg);
     }
-  }
+}
 
-  .animate-spin-slow {
-    animation: spin-slow 20s linear infinite;
-  }
+.animate-born{
+  animation: born 1.5s linear ;
+  /* transform: ; */
+}
+@keyframes born {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;;
+    }
+}
