@@ -4,10 +4,26 @@
 
 @layer base {
     html{
-        @apply bg-gradient-to-r from-purple-600 to-blue-600;
+        /* @apply scroll-smooth hover:scroll-auto; */
+        /* @apply bg-gradient-to-r from-black to-blue-900; */
+        /* @apply bg-blue-900; */
+        @apply bg-transparent;
     }
     body{
-        @apply max-w-4xl mx-auto px-4 bg-gray-100 dark:bg-black dark:text-amber-50;
+        @apply transition-all duration-500 max-w-screen-2xl mx-auto bg-orange-50 dark:bg-neutral-900 dark:text-amber-50 ;
         /* @apply dark: bg-red-400 dark: text-blue-800; */
     }
 }
+
+@keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }

@@ -15,24 +15,151 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
-      <main className=''>
-        <section className='mt-16 grid grid-cols-2'>
-          <div className='m-auto'>
-          <Image
-                // Absolute URL
-                src='/mi_foto_pro.jpeg'
-                alt='User profile picture'
-                width={300}
-                height={300}
+      <main className='min-h-screen'>
+        <section className=' h-screen grid m-auto grid-cols-2 sm:grid-cols-3 md:grid-cols-4  lg:grid-cols-6'>
+          {/* <div className='h-screen grid grid-cols-2'> */}
+          {/* <div className='bg-orange-400'></div> */}
+          <div className=' bg-orange-400 hidden md:flex items-end text-black' >
+            <div>
+              <div >
+                <h3>Contact:</h3>
+              </div>
+              <div>
+                <h3>Social Network</h3>
+              </div>
+            </div>
+          </div>
+
+          <div className='h-screen relative grid grid-cols-1 md:grid-cols-2 bg-orange-400 lg:col-span-2 md:bg-transparent'>
+            <div className='flex justify-center items-center bg-orange-400'></div>
+            <div className=' justify-center items-center bg-transparent hidden md:flex'></div>
+            <Image
+              // Absolute URL
+              className='m-auto absolute top-0 left-0 right-0 bottom-0'
+              src='/mi_foto_pro.jpeg'
+              alt='User profile picture'
+              width={300}
+              height={300}
             />
           </div>
-          <div>
-            <h1 className='text-6xl font-bold '>Hi {"I'm"} <span className='dark:text-purple-600 text-blue-500'>Franck</span></h1>
-            <h3 className='text-3xl my-3'>I am Developer Web</h3>
+
+          {/* </div> */}
+
+          <div className='m-auto px-5 sm:col-span-2 md:col-span-2 lg:col-span-3 ' >
+            <h1 className='text-6xl font-bold '>Hi {"I'm"} <span className=' text-blue-500'>Franck</span></h1>
+            <h3 className='text-3xl my-3'>I am Web Developer</h3>
             <p className='text-gray-700 mb-8 dark:text-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus repellat sequi sunt voluptatum corporis voluptatibus cumque facere, vel molestias magni.</p>
-            <Button className='bg-purple-600 text-white px-6'>Contact me!</Button>
+            <div className='flex '>
+              <Button className='bg-red-500 text-white px-6 text-lg mt-5'>Contact me!</Button>
+            </div>
           </div>
         </section>
+
+
+        {/* <section className='snap-start grid grid-cols-3'>
+          <div className='bg-orange-400'></div>
+          <div className='grid col-span-2 border'>
+            <h1>Proyects</h1>
+animate-spin-slow
+          </div>
+        </section> */}
+
+        <div className="flex justify-center items-center h-screen">
+          <div className="animate-spin-slow  relative w-1/4 h-1/2">
+            <Image
+              // Absolute URL
+              className=' animate-none  absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 '
+              style={{ transformOrigin: 'center' }}
+              src='/SKILLS/react.png'
+              alt='User profile picture'
+              width={77}
+              height={77}
+            />
+            <Image
+              // Absolute URL
+              className=' animate-none  absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 rotate-45'
+              style={{ transformOrigin: 'center' }}
+              src='/SKILLS/nextjs.png'
+              alt='User profile picture'
+              width={77}
+              height={77}
+            />
+            <Image
+              // Absolute URL
+              className=' animate-none  absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 rotate-90'
+              style={{ transformOrigin: 'center' }}
+              src='/SKILLS/arduino.png'
+              alt='User profile picture'
+              width={77}
+              height={77}
+            />
+            <Image
+              // Absolute URL
+              className=' animate-none  absolute top-3/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 rotate-135'
+              style={{ transformOrigin: 'center' }}
+              src='/SKILLS/js.png'
+              alt='User profile picture'
+              width={77}
+              height={77}
+            />
+            <Image
+              // Absolute URL
+              className=' animate-none  absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-180'
+              style={{ transformOrigin: 'center' }}
+              src='/SKILLS/nest.png'
+              alt='User profile picture'
+              width={77}
+              height={77}
+            />
+            <Image
+              // Absolute URL
+              className=' animate-none  absolute top-3/4 left-3/4 transform -translate-x-1/2 -translate-y-1/2 rotate-225'
+              style={{ transformOrigin: 'center' }}
+              src='/SKILLS/git.png'
+              alt='User profile picture'
+              width={77}
+              height={77}
+            />
+            <Image
+              // Absolute URL
+              className=' animate-none  absolute top-1/2 left-full transform -translate-x-1/2 -translate-y-1/2 rotate-270'
+              style={{ transformOrigin: 'center' }}
+              src='/SKILLS/mongodb.png'
+              alt='User profile picture'
+              width={77}
+              height={77}
+            />
+            <Image
+              // Absolute URL
+              className=' animate-none  absolute top-1/4 left-3/4 transform -translate-x-1/2 -translate-y-1/2 rotate-315'
+              style={{ transformOrigin: 'center' }}
+              src='/SKILLS/figma.png'
+              alt='User profile picture'
+              width={77}
+              height={77}
+            />
+          </div>
+        </div>
+
+        {/* //?------------- */}
+
+        {/* <section id='proyects'>
+          <div className="relative">
+            <Image
+              // Absolute URL
+              className='m-auto hover:backdrop-filter'
+              src='/mi_foto_pro.jpeg'
+              alt='User profile picture'
+              width={300}
+              height={300}
+            />
+            <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center text-center text-white transition-all duration-300 opacity-0 hover:opacity-100">
+              <h2 className="text-lg font-bold">Título de la imagen</h2>
+              <p className="text-sm">Descripción de la imagen</p>
+            </div>
+          </div>
+        </section> */}
+
 
       </main>
     </>
