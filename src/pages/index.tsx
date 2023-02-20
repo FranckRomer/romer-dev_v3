@@ -27,10 +27,10 @@ export default function Home() {
   ];
 
   const projects = [
-    { name: 'Settings', path: '/projects/configuraciones.png', text: "Page of show devices of the buses" },
-    { name: 'Buses', path: '/projects/camiones.png', text: "Page of show devices of the buses" },
-    { name: 'Ads', path: '/projects/anuncios.png', text: "Page of show devices of the buses" },
-    { name: 'Domotica', path: '/projects/domotica.png', text: "Page of show devices of the buses" },
+    { name: 'Settings', path: '/projects/configuraciones.png', text: "Page of show devices of the buses", url:"/" },
+    { name: 'Buses', path: '/projects/camiones.png', text: "Page of show devices of the buses", url:"/" },
+    { name: 'Ads', path: '/projects/anuncios.png', text: "Page of show devices of the buses", url:"/" },
+    { name: 'Domotica', path: '/projects/domotica.png', text: "Page of show devices of the buses", url:"/" },
   ]
 
   // ?------------------------------
@@ -128,11 +128,11 @@ export default function Home() {
                   <p className=''>{project.text}</p>
                   <div className='flex justify-between'>
                     <h1 className='text-3xl'>{project.name}</h1>
-                    <div>
+                    <Link href={project.url}>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 hover:text-red-400 hover:scale-150">
                         <path fillRule="evenodd" d="M3.75 12a.75.75 0 01.75-.75h13.19l-5.47-5.47a.75.75 0 011.06-1.06l6.75 6.75a.75.75 0 010 1.06l-6.75 6.75a.75.75 0 11-1.06-1.06l5.47-5.47H4.5a.75.75 0 01-.75-.75z" clipRule="evenodd" />
                       </svg>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -151,6 +151,12 @@ export default function Home() {
         <hr className='my-4' />
 
         {/* //?------------- */}
+
+        <section id='about'>
+          <div>
+            <h1>About</h1>
+          </div>
+        </section>
 
         {/* <section id='proyects'>
           <div className="relative">
