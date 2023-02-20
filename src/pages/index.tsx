@@ -37,16 +37,17 @@ export default function Home() {
 
       <main className='min-h-screen'>
 
-        <section className=' dark:bg-azul-negro md:grid grid-cols-2 mt-8   '>
+        {/* //?--------------------------------------------------------------- */}
+        <section className=' dark:bg-azul-negro sm:grid grid-cols-2 mt-8   '>
 
-          <div className='m-auto px-5 '>
+          <div className='m-auto px-5 text-center sm:text-left'>
             <h2 className='text-2xl my-3'>Hi 🖖,</h2>
             <h1 className='text-6xl font-bold '>{"I'm"} <span className='text-red-400'>Franck</span></h1>
             <h3 className='text-3xl my-3 font-semibold text-purple-900 dark:text-purple-500'>{'< Web Developer />'}</h3>
             <p className='text-gray-700 mb-8 dark:text-white'>
               Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos.
             </p>
-            <div className='flex items-center gap-8'>
+            <div className='flex items-center gap-8 justify-center sm:justify-start'>
               {contactos.map(contact => (
                 <Button key={0}>
                   <Link href={contact.url} >
@@ -65,15 +66,12 @@ export default function Home() {
 
             </div>
           </div>
-
-
+          {/* <hr className='sm:hidden my-8' /> */}
           <div className=" md:h-1/2 flex items-center hover:animate-born my-10 md:my-auto  ">
-            <div className=" grid grid-cols-3  md:w-3/4 mx-auto  md:gap-y-16 " >
-              {skills.map(skill => (
-                <div>
-                  <Image
-                    // Absolute URL
-                    key={0}
+            <div className="hidden sm:grid grid-cols-3  md:w-3/4 mx-auto  md:gap-y-16 " >
+              {skills.map((skill, key) => (
+                <div key={key}>
+                  <Image                 
                     className='peer w-14 sm:w-18 animate-spin-slow hover:animate-none hover:scale-125 m-auto'
                     src={skill.path}
                     alt={skill.name}
@@ -95,38 +93,46 @@ export default function Home() {
 
         </section>
 
-        {/* //?------------- */}
+        {/* //?--------------------------------------------------------------- */}
 
-        <hr />
+        <hr className=' my-8' />
+
         <section id='projects'>
           <div>
-            <h1 className='text-6xl font-bold '>Projects</h1>
+            <h1 className='text-6xl font-bold '>Portfolio</h1>
           </div>
+
         </section>
 
-        {/* <section id='proyects'>
-          <div className="relative">
-            <Image
-              // Absolute URL
-              className='m-auto hover:backdrop-filter'
-              src='/mi_foto_pro.jpeg'
-              alt='User profile picture'
-              width={300}
-              height={300}
-            />
-            <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center text-center text-white transition-all duration-300 opacity-0 hover:opacity-100">
-              <h2 className="text-lg font-bold">Título de la imagen</h2>
-              <p className="text-sm">Descripción de la imagen</p>
-            </div>
-          </div>
-        </section> */}
+
+        <section id='about'>
+          <h1>about</h1>
+        </section>
 
 
+
+        <section id='contact'>
+          <h1>contact</h1>
+        </section>
       </main>
 
-      {/* <div className='fixed top-3/4 left-1/2 justify-center col-span-2 border'>
-        <Button className='bg-red-500 text-white px-6 text-lg mt-5'>Contact me!</Button>
-      </div> */}
+
+      {/* <section id='proyects'>
+        <div className="relative">
+          <Image
+            // Absolute URL
+            className='m-auto hover:backdrop-filter'
+            src='/mi_foto_pro.jpeg'
+            alt='User profile picture'
+            width={300}
+            height={300}
+          />
+          <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center text-center text-white transition-all duration-300 opacity-0 hover:opacity-100">
+            <h2 className="text-lg font-bold">Título de la imagen</h2>
+            <p className="text-sm">Descripción de la imagen</p>
+          </div>
+        </div>
+      </section> */}
     </>
   )
 }
