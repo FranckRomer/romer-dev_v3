@@ -25,6 +25,15 @@ export default function Home() {
     { name: 'Linkedin', path: '/social/linkedin.png', url: "/" },
     { name: 'GitHub', path: '/social/github.png', url: "/" },
   ];
+
+  const projects = [
+    { name: 'Settings', path: '/projects/configuraciones.png', text: "Page of show devices of the buses" },
+    { name: 'Buses', path: '/projects/camiones.png', text: "Page of show devices of the buses" },
+    { name: 'Ads', path: '/projects/anuncios.png', text: "Page of show devices of the buses" },
+    { name: 'Domotica', path: '/projects/domotica.png', text: "Page of show devices of the buses" },
+  ]
+
+  // ?------------------------------
   return (
     <>
       {/* <Head>
@@ -39,20 +48,19 @@ export default function Home() {
 
         <section className=' dark:bg-azul-negro md:grid grid-cols-2 mt-8   '>
 
-          <div className='m-auto px-5 '>
+          <div className='m-auto px-5 text-center sm:text-start'>
             <h2 className='text-2xl my-3'>Hi 🖖,</h2>
             <h1 className='text-6xl font-bold '>{"I'm"} <span className='text-red-400'>Franck</span></h1>
             <h3 className='text-3xl my-3 font-semibold text-purple-900 dark:text-purple-500'>{'< Web Developer />'}</h3>
             <p className='text-gray-700 mb-8 dark:text-white'>
               Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos.
             </p>
-            <div className='flex items-center gap-8'>
-              {contactos.map(contact => (
-                <Button key={0}>
-                  <Link href={contact.url} >
+            <div className='flex items-center gap-8 justify-center md:justify-start'>
+              {contactos.map((contact, index) => (
+                <Button key={index}>
+                  <Link href={contact.url} className='block justify-center '>
                     <Image
-                      key={0}
-                      className='w-8 '
+                      className='peer w-8 mx-auto'
                       src={contact.path}
                       alt={contact.name}
                       width={60}
@@ -60,6 +68,7 @@ export default function Home() {
                     />
                     {/* <p>{contact.name}</p> */}
                   </Link>
+                  {/* <p className='text-center mt-2 invisible peer-hover:visible'>{contact.name}</p> */}
                 </Button>
               ))}
 
@@ -67,13 +76,12 @@ export default function Home() {
           </div>
 
 
-          <div className=" md:h-1/2 flex items-center hover:animate-born my-10 md:my-auto  ">
+          <div className=" hidden md:flex md:h-1/2 items-center hover:animate-born my-10 md:my-auto  ">
             <div className=" grid grid-cols-3  md:w-3/4 mx-auto  md:gap-y-16 " >
-              {skills.map(skill => (
-                <div>
+              {skills.map((skill, index) => (
+                <div key={index}>
                   <Image
-                    // Absolute URL
-                    key={0}
+                    // Absolute URL                    
                     className='peer w-14 sm:w-18 animate-spin-slow hover:animate-none hover:scale-125 m-auto'
                     src={skill.path}
                     alt={skill.name}
@@ -87,7 +95,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='flex justify-center items-center col-span-2 mb-12'>
+          <div className='flex justify-center items-center col-span-2 mb-12 my-12'>
             <Link href={"/contact"}>
               <Button className='bg-red-500 text-white px-6 text-lg '>Contact me!</Button>
             </Link>
@@ -97,12 +105,52 @@ export default function Home() {
 
         {/* //?------------- */}
 
-        <hr />
-        <section id='projects'>
+        <hr className='my-4' />
+
+        {/* //?------------- */}
+
+        <section id='projects' className='mt-12'>
           <div>
-            <h1 className='text-6xl font-bold '>Projects</h1>
+            <h1 className='text-6xl font-semibold text-center'>Portfolio</h1>
+          </div>
+          <div className='grid md:grid-cols-2 '>
+            {projects.map((project, index) => (
+              <div key={index} className=' relative  w-fit m-auto '>
+                <Image
+                  // Absolute URL                    
+                  className=' w-80  m-auto hover:opacity-50 peer-hover:opacity-50 transition-all duration-300'
+                  src={project.path}
+                  alt={project.name}
+                  width={500}
+                  height={500}
+                />
+                <div className='peer absolute  bottom-0  left-0 right-0 opacity-100 peer-hover:opacity-100 hover:opacity-100 m-4 grid transition-all duration-500'>
+                  <p className=''>{project.text}</p>
+                  <div className='flex justify-between'>
+                    <h1 className='text-3xl'>{project.name}</h1>
+                    <div>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 hover:text-red-400 hover:scale-150">
+                        <path fillRule="evenodd" d="M3.75 12a.75.75 0 01.75-.75h13.19l-5.47-5.47a.75.75 0 011.06-1.06l6.75 6.75a.75.75 0 010 1.06l-6.75 6.75a.75.75 0 11-1.06-1.06l5.47-5.47H4.5a.75.75 0 01-.75-.75z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className='flex justify-center items-center col-span-2 mb-12 my-12'>
+            <Link href={"/contact"}>
+              <Button className='bg-red-500 text-white px-6 text-lg '>More projects</Button>
+            </Link>
           </div>
         </section>
+
+        {/* //?------------- */}
+
+        <hr className='my-4' />
+
+        {/* //?------------- */}
 
         {/* <section id='proyects'>
           <div className="relative">
@@ -124,9 +172,7 @@ export default function Home() {
 
       </main>
 
-      {/* <div className='fixed top-3/4 left-1/2 justify-center col-span-2 border'>
-        <Button className='bg-red-500 text-white px-6 text-lg mt-5'>Contact me!</Button>
-      </div> */}
+
     </>
   )
 }
