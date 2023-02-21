@@ -14,10 +14,10 @@ const Header = () => {
     }, [])
 
     const navigations = [
-        { label: 'Home', path: '/', src: '/iconos/home2.png' },
-        { label: 'Projects', path: '#projects', src: '/iconos/portafolio2.png' },
-        { label: 'About', path: '#about', src: '/iconos/about2.png' },
-        { label: 'Contacts', path: '#contact', src: '/iconos/contacto2.png' },
+        { label: 'Home', path: '/', url: "/iconos/home2.png" },
+        { label: 'Projects', path: '#projects', url: "/iconos/projects.png" },
+        { label: 'About', path: '#about', url: "/iconos/about.png" },
+        { label: 'Contacts', path: '#contact', url: "/iconos/contacto2.png" },
     ]
     const renderThemeChanger = () => {
         if (!mounted) return null;
@@ -39,6 +39,8 @@ const Header = () => {
             )
         }
 
+
+
         return (
             <Button
                 className='bg-gray-200'
@@ -54,10 +56,9 @@ const Header = () => {
 
     return (
         <>
-
-            <header className='sticky h-12 flex item-center justify-between   items-center  top-0 left-0 right-0 w-full mx-auto py-8 px-4 bg-orange-50 dark:bg-neutral-900 z-50 '>
-                <Link href={"/"} className='flex items-center gap-2 ' >                    
-                    <Image                        
+            <header className='sticky h-12 flex item-center justify-between   items-center  top-0 left-0 right-0 w-full mx-auto py-8 px-4 bg-orange-50 dark:bg-neutral-900  z-40 '>
+                <Link href={"/"} className='flex items-center gap-2 ' >
+                    <Image
                         className='bg-orange-50'
                         src='/romero.png'
                         alt='User profile picture'
@@ -67,27 +68,28 @@ const Header = () => {
                     <h3 className='text-stone-900 dark:text-white font-semibold border-l-2 p-2 border-stone-500  dark:border-white text-xl'>ROMER</h3>
                 </Link>
 
-                <ul className=' gap-7 items-center text-xl hidden md:flex m-2' >
-                    {navigations.map(nav => (
-                        <Link
-                            key={0}
-                            href={nav.path}
-                            className='flex items-center gap-4 font-semibold text-gray-200 hover:text-blue-500   hover:underline transition-all duration-200'
-                        >                            
-                            {nav.label}
-                        </Link>
-                    ))}
-                </ul>
+                <div className='flex gap-6 '>
 
-                <div className='flex gap-6 -z-50'>
+                    <ul className=' gap-7 items-center text-xl hidden md:flex ' >
+                        {navigations.map((nav, index) => (
+                            <Link
+                                key={index}
+                                href={nav.path}
+                                className='font-semibold text-neutral-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline transition-all duration-200'
+                            >
+                                {nav.label}
+                            </Link>
+                        ))}
+                    </ul>
+
 
                     {renderThemeChanger()}
 
-                    <div className='  flex md:hidden items-center' >
-                        <Button className=' bg-gray-200 dark:bg-neutral-800 flex items-center transition-all duration-500' onClick={() => setMenu(!menu)}>
+                    <div className=' md:hidden ' onClick={() => setMenu(!menu)}>
+                        <Button className=' bg-gray-200 dark:bg-neutral-800 '>
                             <Image
                                 key={0}
-                                className=' w-8 dark:invert'
+                                className='w-8 dark:invert'
                                 src='/iconos/menu3.png'
                                 alt='Menu'
                                 width={60}
@@ -95,84 +97,69 @@ const Header = () => {
                             />
                         </Button>
                     </div>
-
                 </div>
             </header>
-
-
             {/* //?------------------------------------------- */}
             {menu ?
                 <div className=' relative '>
                     <div
-                        className='fixed top-0 left-0 right-0 bottom-0 h-screen w-screen z-40'
+                        className='fixed top-0 left-0 right-0 bottom-0 h-screen w-screen '
                         onClick={() => setMenu(false)}
                     ></div>
-                    
-                    <div className='fixed  top-14  right-10 w-4 h-4 border rotate-45 rounded bg-black/90 z-50'></div>
 
-                    <div className='fixed top-16  right-8 bg-black/90 border rounded-md py-4 px-8 z-50' >
-                        {/* <div className='flex justify-end border'>
-                            <Button onClick={() => setMenu(false)}>
-                                <Image
-                                    key={0}
-                                    className='w-8'
-                                    src='/iconos/cerrar.png'
-                                    alt='Menu'
-                                    width={60}
-                                    height={60}
-                                />
-                            </Button>
-                        </div> */}
-                        <ul className=' gap-7 items-center text-xl grid m-2' >
-                            {navigations.map(nav => (
+                    <div className='fixed md:hidden  w-4 h-4 top-12 right-11 bg-black/90 border rotate-45 rounded-sm z-50'></div>
+
+                    <div className='fixed md:hidden top-14  right-8 bg-black/90 border rounded-md z-50' >
+                        <ul className='p-4 gap-4 items-center text-xl grid' >
+                            {navigations.map((nav, index) => (
                                 <Link
-                                    key={0}
+                                    key={index}
                                     href={nav.path}
-                                    className='flex items-center gap-4 font-semibold text-gray-200 hover:text-blue-500   hover:underline transition-all duration-200'
+                                    className='font-semibold text-neutral-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline  transition-all duration-200'
                                 >
-                                    <Image
-                                        className='w-8 invert hover:brightness-150 '
-                                        src={nav.src}
-                                        alt={nav.label}
-                                        width={60}
-                                        height={60}
-                                    />
-                                    {nav.label}
+                                    <div className='flex items-center justify-start gap-2 '>
+                                        <Image
+                                            key={0}
+                                            className='w-8 invert'
+                                            src={nav.url}
+                                            alt='Menu'
+                                            width={60}
+                                            height={60}
+                                        />
+                                        {nav.label}
+                                    </div>
                                 </Link>
                             ))}
                         </ul>
-
-                        <hr className='my-6' />
-                        <ul className='gap-7 items-center text-xl grid m-2'>
-                            <Link
-                                key={0}
-                                href="/"
-                                className='flex items-center gap-4 font-semibold text-gray-200 hover:text-blue-500   hover:underline transition-all duration-200'
-                            >
-                                <Image
-                                    className='w-8  hover:brightness-150 '
-                                    src='/social/linkedin.png'
-                                    alt="Github"
-                                    width={60}
-                                    height={60}
-                                />
-                                Linkedin
+                        <hr />
+                        <div className='p-4 gap-4 items-center text-xl grid'>
+                            <Link href={"/"} className='font-semibold text-neutral-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline  transition-all duration-200'>
+                                <div className='flex items-center justify-start gap-2 '>
+                                    <Image
+                                        key={0}
+                                        className='w-8'
+                                        src="/social/github.png"
+                                        alt='Menu'
+                                        width={60}
+                                        height={60}
+                                    />
+                                    <p>GitHub</p>
+                                </div>
                             </Link>
-                            <Link
-                                key={0}
-                                href="/"
-                                className='flex items-center gap-4 font-semibold text-gray-200 hover:text-blue-500   hover:underline transition-all duration-200'
-                            >
-                                <Image
-                                    className='w-8  hover:brightness-150 '
-                                    src='/social/github.png'
-                                    alt="Github"
-                                    width={60}
-                                    height={60}
-                                />
-                                Github
+                            <Link href={"/"} className='font-semibold text-neutral-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline  transition-all duration-200'>
+                                <div className='flex items-center justify-start gap-2 '>
+                                    <Image
+                                        key={0}
+                                        className='w-8'
+                                        src="/social/linkedin.png"
+                                        alt='Menu'
+                                        width={60}
+                                        height={60}
+                                    />
+                                    <p>Linkedin</p>
+                                </div>
                             </Link>
-                        </ul>
+                        </div>
                     </div>
                 </div>
                 :
