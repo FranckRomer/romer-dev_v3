@@ -24,6 +24,17 @@
   }
 }
 
+.grid-auto{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+}
+
+.grid-3-4{
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
 .animate-spin-slow {
     animation: spin-slow 30s linear infinite;
   }

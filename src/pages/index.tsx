@@ -33,6 +33,46 @@ export default function Home() {
     { name: 'Domotica', path: '/projects/domotica.png', text: "Page of show devices of the buses", url: "/" },
   ]
 
+  const allSkills = [
+    {
+      name: "Fronted", text: "", skills: [
+        { name: 'Html', path: '/SKILLS/html.png' },
+        { name: 'Css', path: '/SKILLS/css.png' },
+        { name: 'JavaScript', path: '/SKILLS/js.png' },
+        { name: 'React', path: '/SKILLS/react.png' },
+        { name: 'Next js', path: '/SKILLS/nextjs.png' },
+      ]
+    },
+    {
+      name: "Backend", text: "", skills: [
+        { name: 'JavaScript', path: '/SKILLS/js.png' },
+        { name: 'Node js', path: '/SKILLS/nodejs.png' },
+        { name: 'Nest js', path: '/SKILLS/nest.png' },
+        { name: 'Mongo Db', path: '/SKILLS/mongodb.png' },
+        { name: 'Postgres', path: '/SKILLS/postgres.png' },
+      ]
+    },
+    {
+      name: "IoT", text: "", skills: [
+        { name: 'Arduino', path: '/SKILLS/arduino.png' },
+        { name: 'C++', path: '/SKILLS/c++.png' },
+        { name: 'Microchip', path: '/SKILLS/microchip.png' },
+        { name: 'Raspberry', path: '/SKILLS/raspberry.png' },
+      ]
+    },
+    {
+      name: "Other", text: "", skills: [
+        { name: 'Git', path: '/SKILLS/git.png' },
+        { name: 'Linux', path: '/SKILLS/linux.png' },
+        { name: 'Matlab', path: '/SKILLS/matlab.png' },
+        { name: 'Figma', path: '/SKILLS/figma.png' },
+        { name: 'Notion', path: '/SKILLS/notion.png' },
+      ]
+    },
+  ]
+
+
+
   // ?------------------------------
   return (
     <>
@@ -47,13 +87,13 @@ export default function Home() {
       <main className='min-h-screen'>
 
         {/* //?--------------------------------------------------------------- */}
-        <section className=' dark:bg-azul-negro sm:grid grid-cols-2 mt-8   '>
+        <section className='min-h-screen dark:bg-azul-negro sm:grid sm:grid-cols-2 mt-8   '>
 
-          <div className='m-auto px-5 text-center sm:text-start'>
+          <div className='m-auto px-5 text-center md:text-start'>
             <h2 className='text-2xl my-3'>Hi 🖖,</h2>
             <h1 className='text-6xl font-bold '>{"I'm"} <span className='text-red-400'>Franck</span></h1>
             <h3 className='text-3xl my-3 font-semibold text-purple-900 dark:text-purple-500'>{'< Web Developer />'}</h3>
-            <p className='text-gray-700 mb-8 dark:text-white'>
+            <p className='text-gray-700 mb-8 dark:text-white text-xl'>
               Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos.
             </p>
             <div className='flex items-center gap-8 justify-center md:justify-start'>
@@ -77,8 +117,8 @@ export default function Home() {
           </div>
 
 
-          <div className=" hidden md:flex md:h-1/2 items-center hover:animate-born my-10 md:my-auto  ">
-            <div className=" grid grid-cols-3  md:w-3/4 mx-auto  md:gap-y-16 " >
+          <div className=" hidden sm:flex md:h-1/2 items-center hover:animate-born my-10 md:my-auto  ">
+            <div className=" grid grid-cols-3 w-4/5 md:w-3/4 mx-auto gap-y-8  md:gap-y-16 " >
               {skills.map((skill, index) => (
                 <div key={index}>
                   <Image
@@ -112,20 +152,19 @@ export default function Home() {
 
         <section id='projects' className='mt-12'>
           <div>
-            <h1 className='text-6xl font-semibold text-center'>Portfolio</h1>
+            <h1 className='text-5xl font-bold text-center'>Portfolio</h1>
           </div>
-          <div className='grid md:grid-cols-2 '>
+          <div className='grid grid-cols-2 '>
             {projects.map((project, index) => (
               <div key={index} className=' relative  w-fit m-auto '>
                 <Image
-                  // Absolute URL                    
-                  className=' w-80  m-auto hover:opacity-50 peer-hover:opacity-50 transition-all duration-300'
+                  className=' w-48 sm:w-80 lg:w-96  m-auto hover:opacity-50 peer-hover:opacity-50 transition-all duration-300'
                   src={project.path}
                   alt={project.name}
                   width={500}
                   height={500}
                 />
-                <div className='peer absolute  bottom-0  left-0 right-0 opacity-100 peer-hover:opacity-100 hover:opacity-100 m-4 grid transition-all duration-500'>
+                <div className='peer sm:absolute  bottom-0  left-0 right-0 opacity-100 peer-hover:opacity-100 hover:opacity-100 m-4 grid transition-all duration-500'>
                   <p className=''>{project.text}</p>
                   <div className='flex justify-between'>
                     <h1 className='text-3xl'>{project.name}</h1>
@@ -147,90 +186,160 @@ export default function Home() {
           </div>
         </section>
 
-        {/* //?------------- */}
+        {/* //?--------------------------------------------------------------- */}
 
-        <hr className='my-4' />
+        <hr className=' my-8' />
 
         {/* //?------------- */}
 
         <section id='about'>
-          <div>
-            <h1>About</h1>
-            <p>Mi nombre es Francisco Angel Romero Tepal, trabajo en el mundo de la tecnología creando y dando vida a ideas.</p>
-            <p>Soy Desarrollador Full-Stack con conocimientos en Frontend, Backend y IoT. Desarrollo sitios web, aplicaciones web, herramientas para usuarios y dispositivos de IoT.</p>
+          <div className='grid md:grid-cols-2 my-8'>
+            <div className='grid gap-y-8 my-8 mx-4 md:mx-0'>
+              <h1 className='text-5xl font-bold tex'>About</h1>
+              <p className='text-xl md:text-2xl'>Mi nombre es Francisco Angel Romero Tepal, trabajo en el mundo de la tecnología creando y dando vida a ideas.</p>
+              <p className='text-xl md:text-2xl'>Soy Desarrollador Full-Stack con conocimientos en <b className='text-purple-900 dark:text-purple-500 font-semibold'> Frontend, Backend y IoT. </b> Desarrollo sitios web, aplicaciones web, herramientas para usuarios y dispositivos de IoT.</p>
+            </div>
+            <div className='m-auto '>
+              <Image
+                className='peer w-48 sm:w-80 lg:w-96  m-auto hover:opacity-50 peer-hover:opacity-50 transition-all duration-300'
+                src="/mi_foto_pro.jpeg"
+                alt="Imagen de Francisco Angel Romero Tepal"
+                width={500}
+                height={500}
+              />
+              <p className='text-xl text-center mt-2 invisible peer-hover:visible'>Francisco Angel Romero Tepal</p>
+            </div>
           </div>
 
-          <div>
-            <div>
-              <h1>Experience</h1>
-              <div>
-                <h3></h3>
-                <p></p>
-                <p></p>
+          <div className='grid md:grid-cols-2 gap-8'>
+            <div className=' mx-4 md:mx-0'>
+
+              <h1 className='text-4xl font-bold'>Experience</h1>
+              <hr />
+              <div className='p-4 m-4 border rounded-lg grid-3-4 '>
+                <div>
+                  <h3 className='text-2xl font-semibold'>Desarrollo de dispositivos y aplicaciones para IoT.</h3>
+                  <p>Grupo Accesa</p>
+                  <p>Current: Otoño 2021</p>
+                </div>
+                <div>
+                  <Image
+                    className='peer w-36 sm:w-48  hover:scale-125 m-auto'
+                    src="/projects/anuncios.png"
+                    alt="Grupo Accesa"
+                    width={500}
+                    height={500}
+                  />
+                </div>
               </div>
-              <div>
-                <h3></h3>
-                <p></p>
-                <p></p>
+              <div className='p-4 m-4 border rounded-lg grid-3-4'>
+                <div>
+                  <h3 className='text-2xl font-semibold'>Desarrollo de dispositivos en IoT</h3>
+                  <p>Laboratorio Sled</p>
+                  <p>Sesson: Primavera 2019 - Otoño 2020</p>
+                </div>
+                <div>
+                  <Image
+                    className='peer w-36 sm:w-48  hover:scale-125 m-auto'
+                    src="/projects/anuncios.png"
+                    alt="Grupo Accesa"
+                    width={500}
+                    height={500}
+                  />
+                </div>
+              </div>
+
+              <h1 className='text-4xl font-bold'>Education</h1>
+              <hr />
+              <div className='p-4 m-4 border rounded-lg grid-3-4'>
+                <div>
+                  <h3 className='text-2xl font-semibold'>Platzi</h3>
+                  <p>Grupo Accesa</p>
+                  <p>Current: Otoño 2022</p>
+                </div>
+                <div>
+                  <Image
+                    className='peer w-36 sm:w-48  hover:scale-125 m-auto'
+                    src="/projects/anuncios.png"
+                    alt="Grupo Accesa"
+                    width={500}
+                    height={500}
+                  />
+                </div>
+              </div>
+              <div className='p-4 m-4 border rounded-lg grid-3-4'>
+                <div>
+                  <h3 className='text-2xl font-semibold'>Buap</h3>
+                  <p>Grupo Accesa</p>
+                  <p>Current: Otoño 2015 - Otoño 2020</p>
+                </div>
+                <div>
+                  <Image
+                    className='peer w-36 sm:w-48  hover:scale-125 m-auto'
+                    src="/projects/anuncios.png"
+                    alt="Grupo Accesa"
+                    width={500}
+                    height={500}
+                  />
+                </div>
+              </div>
+
+            </div>
+
+            {/* // */}
+            <div>
+              <h1 className='text-4xl font-bold'>Skills</h1>
+              <hr />
+              <div className='grid gap-8 md:grid-cols-1'>
+                {allSkills.map((data, index1) => (
+                  <div key={index1} className='grid gap-y-8 '>
+                    <h1 className='text-3xl font-semibold italic m-4 '>{data.name}</h1>
+                    <div className='grid grid-auto gap-y-8 w-4/5 m-auto'>
+                      {data.skills.map((skill, index) => (
+                        <div key={index}>
+                          <Image
+                            className='peer w-10 sm:w-12 animate-spin-slow hover:animate-none hover:scale-125 m-auto'
+                            src={skill.path}
+                            alt={skill.name}
+                            width={77}
+                            height={77}
+                          />
+                          <p className='text-center mt-2 invisible peer-hover:visible'>{skill.name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div>
-              <h1>Skills</h1>
-            </div>
           </div>
+
 
         </section>
+
+
+        {/* //?--------------------------------------------------------------- */}
+
+        <hr className=' my-8' />
+
+        {/* //?------------- */}
 
 
         <section id='about'>
-          <h1>about</h1>
+          <h1>Services</h1>
         </section>
 
+        {/* //?--------------------------------------------------------------- */}
 
+        <hr className=' my-8' />
+
+        {/* //?------------- */}
 
         <section id='contact'>
-          <h1>contact</h1>
+          <h1>Contact</h1>
         </section>
       </main>
-
-
-      {/* <section id='proyects'>
-        <div className="relative">
-          <Image
-            // Absolute URL
-            className='m-auto hover:backdrop-filter'
-            src='/mi_foto_pro.jpeg'
-            alt='User profile picture'
-            width={300}
-            height={300}
-          />
-          <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center text-center text-white transition-all duration-300 opacity-0 hover:opacity-100">
-            <h2 className="text-lg font-bold">Título de la imagen</h2>
-            <p className="text-sm">Descripción de la imagen</p>
-          </div>
-        </div>
-      </section> */}
-      {/* <section id='proyects'>
-          <div className="relative">
-            <Image
-              // Absolute URL
-              className='m-auto hover:backdrop-filter'
-              src='/mi_foto_pro.jpeg'
-              alt='User profile picture'
-              width={300}
-              height={300}
-            />
-            <div className="absolute top-0 left-0 right-0 bottom-0 flex flex-col items-center justify-center text-center text-white transition-all duration-300 opacity-0 hover:opacity-100">
-              <h2 className="text-lg font-bold">Título de la imagen</h2>
-              <p className="text-sm">Descripción de la imagen</p>
-            </div>
-          </div>
-        </section> */}
-
-
-
-
 
     </>
   )
