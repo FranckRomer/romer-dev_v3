@@ -4,10 +4,17 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Button from '@/components/Button'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [datosUsuario, SetDatosUsuario] = useState({
+    company: "",
+    email: "",
+    msg: "",
+  })
+
   const skills = [
     { name: 'React', path: '/SKILLS/react.png' },
     { name: 'Microchip', path: '/SKILLS/microchip.png' },
@@ -41,6 +48,7 @@ export default function Home() {
         { name: 'JavaScript', path: '/SKILLS/js.png' },
         { name: 'React', path: '/SKILLS/react.png' },
         { name: 'Next js', path: '/SKILLS/nextjs.png' },
+        { name: 'Tailwind', path: '/SKILLS/tailwind.png' },
       ]
     },
     {
@@ -55,7 +63,7 @@ export default function Home() {
     {
       name: "IoT", text: "", skills: [
         { name: 'Arduino', path: '/SKILLS/arduino.png' },
-        { name: 'C++', path: '/SKILLS/c++.png' },
+        { name: 'C++', path: '/SKILLS/C++.png' },
         { name: 'Microchip', path: '/SKILLS/microchip.png' },
         { name: 'Raspberry', path: '/SKILLS/raspberry.png' },
       ]
@@ -70,6 +78,37 @@ export default function Home() {
       ]
     },
   ]
+  // 
+  // 
+  // 
+  const handleChangeData = (e: any) => {
+    SetDatosUsuario({
+      ...datosUsuario,
+      [e.target.name]: e.target.value
+    })
+  }
+  // *---------------------------------------------
+
+
+  const enviarDatos = async (e: any) => {
+    e.preventDefault()
+    console.log(datosUsuario)
+    // try {
+    //     const response = await axios.post('/api/dana/changeDataTouch', datos)
+    //     console.log(response)
+    //     if (response.status === 200) {
+    //         setVentanaBotones(false)
+    //         props.hijoAPadre()
+    //     }
+    // } catch (error) {
+    //     setError(false)
+    //     console.log(error);
+    //     setTimeout(() => {
+    //         console.log("1 Segundo esperado")
+    //         setError(true)
+    //     }, 150);
+    // }
+  }
 
 
 
@@ -87,19 +126,29 @@ export default function Home() {
       <main className='min-h-screen'>
 
         {/* //?--------------------------------------------------------------- */}
-        <section className='min-h-screen dark:bg-azul-negro sm:grid sm:grid-cols-2 mt-8   '>
+        <section className=' dark:bg-azul-negro sm:grid sm:grid-cols-2 mt-8   '>
 
-          <div className='m-auto px-5 text-center md:text-start'>
+          <div className='m-auto px-5 text-center '>
             <h2 className='text-2xl my-3'>Hi 🖖,</h2>
             <h1 className='text-6xl font-bold '>{"I'm"} <span className='text-red-400'>Franck</span></h1>
             <h3 className='text-3xl my-3 font-semibold text-purple-900 dark:text-purple-500'>{'< Web Developer />'}</h3>
+            <div className='flex justify-center items-end my-4 mx-auto border-b p-1 w-fit hover:border-red-500 hover:text-red-500 cursor-pointer hover:scale-125 transition-all duration-300'>
+              <Image
+                className='peer w-8 '
+                src="/iconos/pdf.png"
+                alt="PDF"
+                width={60}
+                height={60}
+              />
+              <h3 className='font-semibold'>Download</h3>
+            </div>
             <p className='text-gray-700 mb-8 dark:text-white text-xl'>
               Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos.
             </p>
-            <div className='flex items-center gap-8 justify-center md:justify-start'>
+            <div className='flex items-center gap-8 justify-center'>
               {contactos.map((contact, index) => (
-                <Button key={index}>
-                  <Link href={contact.url} className='block justify-center '>
+                <Button key={index} className='peer'>
+                  <Link href={contact.url} className='peer block justify-center '>
                     <Image
                       className='peer w-8 mx-auto'
                       src={contact.path}
@@ -107,8 +156,8 @@ export default function Home() {
                       width={60}
                       height={60}
                     />
-                    {/* <p>{contact.name}</p> */}
                   </Link>
+                  <p className='text-sm text-center mt-2 invisible peer-hover:visible'>{contact.name}</p>
                   {/* <p className='text-center mt-2 invisible peer-hover:visible'>{contact.name}</p> */}
                 </Button>
               ))}
@@ -137,7 +186,7 @@ export default function Home() {
           </div>
 
           <div className='flex justify-center items-center col-span-2 mb-12 my-12'>
-            <Link href={"/contact"}>
+            <Link href={"#contact"}>
               <Button className='bg-red-500 text-white px-6 text-lg '>Contact me!</Button>
             </Link>
           </div>
@@ -146,11 +195,11 @@ export default function Home() {
 
         {/* //?--------------------------------------------------------------- */}
 
-        <hr className=' my-8' />
+        <hr id='projects' className=' my-20 border-black dark:border-gray-400' />
 
         {/* //?------------- */}
 
-        <section id='projects' className='mt-12'>
+        <section className='mt-12'>
           <div>
             <h1 className='text-5xl font-bold text-center'>Portfolio</h1>
           </div>
@@ -188,11 +237,11 @@ export default function Home() {
 
         {/* //?--------------------------------------------------------------- */}
 
-        <hr className=' my-8' />
+        <hr id='about' className=' my-20 border-black dark:border-gray-400' />
 
         {/* //?------------- */}
 
-        <section id='about'>
+        <section >
           <div className='grid md:grid-cols-2 my-8'>
             <div className='grid gap-y-8 my-8 mx-4 md:mx-0'>
               <h1 className='text-5xl font-bold tex'>About</h1>
@@ -211,37 +260,37 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8'>
-            <div className=' mx-4 md:mx-0'>
+          <div className='grid md:grid-cols-2 gap-8 '>
+            <div className=' mx-4 md:mx-0 grid items-stretch'>
 
               <h1 className='text-4xl font-bold'>Experience</h1>
               <hr />
-              <div className='p-4 m-4 border rounded-lg grid-3-4 '>
+              <div className='p-4 m-4 border rounded-lg grid-3-4 border-blue-700'>
                 <div>
-                  <h3 className='text-2xl font-semibold'>Desarrollo de dispositivos y aplicaciones para IoT.</h3>
+                  <h3 className='text-2xl font-semibold'>Desarrollo de aplicaciones para IoT.</h3>
                   <p>Grupo Accesa</p>
                   <p>Current: Otoño 2021</p>
                 </div>
-                <div>
+                <div className='m-auto'>
                   <Image
                     className='peer w-36 sm:w-48  hover:scale-125 m-auto'
-                    src="/projects/anuncios.png"
+                    src="/logos/accesa.png"
                     alt="Grupo Accesa"
                     width={500}
                     height={500}
                   />
                 </div>
               </div>
-              <div className='p-4 m-4 border rounded-lg grid-3-4'>
+              <div className='p-4 m-4 border rounded-lg grid-3-4 border-orange-500'>
                 <div>
                   <h3 className='text-2xl font-semibold'>Desarrollo de dispositivos en IoT</h3>
                   <p>Laboratorio Sled</p>
                   <p>Sesson: Primavera 2019 - Otoño 2020</p>
                 </div>
-                <div>
+                <div className='m-auto'>
                   <Image
                     className='peer w-36 sm:w-48  hover:scale-125 m-auto'
-                    src="/projects/anuncios.png"
+                    src="/logos/fce.png"
                     alt="Grupo Accesa"
                     width={500}
                     height={500}
@@ -249,34 +298,34 @@ export default function Home() {
                 </div>
               </div>
 
-              <h1 className='text-4xl font-bold'>Education</h1>
+              <h1 className='text-4xl font-bold mt-8'>Education</h1>
               <hr />
-              <div className='p-4 m-4 border rounded-lg grid-3-4'>
+              <div className='p-4 m-4 border rounded-lg grid-3-4 border-green-500'>
                 <div>
                   <h3 className='text-2xl font-semibold'>Platzi</h3>
-                  <p>Grupo Accesa</p>
+                  <p>Escuela en linea</p>
                   <p>Current: Otoño 2022</p>
                 </div>
-                <div>
+                <div className='m-auto'>
                   <Image
                     className='peer w-36 sm:w-48  hover:scale-125 m-auto'
-                    src="/projects/anuncios.png"
+                    src="/logos/platzi.png"
                     alt="Grupo Accesa"
                     width={500}
                     height={500}
                   />
                 </div>
               </div>
-              <div className='p-4 m-4 border rounded-lg grid-3-4'>
+              <div className='p-4 m-4 border rounded-lg grid-3-4 border-pink-700'>
                 <div>
                   <h3 className='text-2xl font-semibold'>Buap</h3>
-                  <p>Grupo Accesa</p>
+                  <p>Benemerita Univercidad Autonoma de Puebla</p>
                   <p>Current: Otoño 2015 - Otoño 2020</p>
                 </div>
-                <div>
+                <div className='m-auto'>
                   <Image
                     className='peer w-36 sm:w-48  hover:scale-125 m-auto'
-                    src="/projects/anuncios.png"
+                    src="/logos/buap.png"
                     alt="Grupo Accesa"
                     width={500}
                     height={500}
@@ -288,15 +337,15 @@ export default function Home() {
 
             {/* // */}
             <div>
-              <h1 className='text-4xl font-bold'>Skills</h1>
+              <h1 className='text-4xl font-bold text-center'>Skills</h1>
               <hr />
-              <div className='grid gap-8 md:grid-cols-1'>
+              <div className='grid gap-8 md:grid-cols-1 C'>
                 {allSkills.map((data, index1) => (
-                  <div key={index1} className='grid gap-y-8 '>
-                    <h1 className='text-3xl font-semibold italic m-4 '>{data.name}</h1>
-                    <div className='grid grid-auto gap-y-8 w-4/5 m-auto'>
+                  <div key={index1} className='grid gap-y-4 '>
+                    <h1 className='text-3xl font-semibold italic  md:m-4 '>{data.name}</h1>
+                    <div className='grid grid-auto gap-y-4 md:gap-y-4 w-4/5 m-auto'>
                       {data.skills.map((skill, index) => (
-                        <div key={index}>
+                        <div key={index} className='grid items-stretch'>
                           <Image
                             className='peer w-10 sm:w-12 animate-spin-slow hover:animate-none hover:scale-125 m-auto'
                             src={skill.path}
@@ -304,7 +353,7 @@ export default function Home() {
                             width={77}
                             height={77}
                           />
-                          <p className='text-center mt-2 invisible peer-hover:visible'>{skill.name}</p>
+                          <p className='text-xs sm:text-sm text-center mt-2 md:invisible peer-hover:visible'>{skill.name}</p>
                         </div>
                       ))}
                     </div>
@@ -321,23 +370,89 @@ export default function Home() {
 
         {/* //?--------------------------------------------------------------- */}
 
-        <hr className=' my-8' />
+        {/* <hr className=' my-8' /> */}
 
-        {/* //?------------- */}
-
-
-        <section id='about'>
+        {/* <section id='about'>
           <h1>Services</h1>
-        </section>
+        </section> */}
 
         {/* //?--------------------------------------------------------------- */}
 
-        <hr className=' my-8' />
+        <hr className=' my-20 border-black dark:border-gray-400' id='contact' />
 
         {/* //?------------- */}
 
-        <section id='contact'>
-          <h1>Contact</h1>
+        <h1 className='md:hidden text-4xl font-semibold text-center m-12'>Contacts</h1>
+
+        <section className='grid md:grid-cols-2 gap-4 p-4'>
+          <div className=' m-auto p-8 rounded-md border border-emerald-600 w-3/4'>
+            <h1 className='my-8 text-center text-3xl font-semibold'>Mend me a Messeges</h1>
+            <form onSubmit={enviarDatos} className="grid gap-y-12 ">
+              <input
+                name='company'
+                type="text"
+                placeholder="Company or Name"
+                onChange={handleChangeData}
+                required
+                className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-black dark:border-gray-400'
+              />
+              <input
+                name='email'
+                type="text"
+                placeholder="Email"
+                onChange={handleChangeData}
+                required
+                className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-black dark:border-gray-400'
+              />
+              <textarea
+                name="msg"
+                id="msg"
+                cols={1}
+                rows={1}
+                placeholder="Write here your messegs"
+                className='h-32 w-11/12 m-auto px-4 bg-transparent border-b outline-none border-black dark:border-gray-400'
+              ></textarea>
+
+              <Button type="submit" onClick={enviarDatos}>Send</Button>
+            </form>
+          </div>
+
+          <div className='grid'>
+            <h1 className='hidden md:block text-4xl font-semibold text-center'>Contacts</h1>
+            <p className='text-center text-xl font-semibold my-12 md:m-0'>
+              {'“La tecnología esta en una constante evolución, por lo que la mejor forma de estar actualizado es con un constante aprendizaje”'}
+            </p>
+            <div className='hidden md:flex gap-2 items-center m-auto'>
+              <Image
+                className='peer w-16 sm:w-20  m-auto'
+                src="/contact3.png"
+                alt="Francisco Angel Romero Tepal"
+                width={500}
+                height={500}
+              />
+              <p className='text-3xl font-semibold'>Francisco Romero</p>
+            </div>
+            <hr />
+            <h1 className='text-3xl font-semibold'>Redes</h1>
+            <div className='flex items-center gap-8 justify-center '>
+              {contactos.map((contact, index) => (
+                <Button key={index}>
+                  <Link href={contact.url} className='block justify-center gap-y-4 '>
+                    <Image
+                      className='peer w-8 md:w-12  mx-auto'
+                      src={contact.path}
+                      alt={contact.name}
+                      width={100}
+                      height={100}
+                    />
+                    <p>{contact.name}</p>
+                  </Link>
+                  {/* <p className='text-center mt-2 invisible peer-hover:visible'>{contact.name}</p> */}
+                </Button>
+              ))}
+
+            </div>
+          </div>
         </section>
       </main>
 

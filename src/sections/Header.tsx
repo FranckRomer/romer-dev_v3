@@ -110,7 +110,7 @@ const Header = () => {
                     <div className='fixed md:hidden  w-4 h-4 top-12 right-11 bg-black/90 border rotate-45 rounded-sm z-50'></div>
 
                     <div className='fixed md:hidden top-14  right-8 bg-black/90 border rounded-md z-50' >
-                        <ul className='p-4 gap-4 items-center text-xl grid' >
+                        <ul className='p-6 gap-4 items-center text-xl grid' >
                             {navigations.map((nav, index) => (
                                 <Link
                                     key={index}

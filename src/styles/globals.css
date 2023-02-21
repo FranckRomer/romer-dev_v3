@@ -14,9 +14,9 @@
         /* @apply dark: bg-red-400 dark: text-blue-800; */
     }
 }
-/* html{
-  scroll-behavior: smooth;
-} */
+html{
+  scroll-behavior: smooth !important;
+}
 
 @layer base {
   html {
