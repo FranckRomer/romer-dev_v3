@@ -71,3 +71,16 @@ html{
       opacity: 1;;
     }
 }
+
+.animate-rotate-one{
+  animation: rotateOne .5s linear ;
+  /* transform: ; */
+}
+@keyframes rotateOne {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

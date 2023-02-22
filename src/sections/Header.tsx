@@ -75,7 +75,7 @@ const Header = () => {
                             <Link
                                 key={index}
                                 href={nav.path}
-                                className='font-semibold text-neutral-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline transition-all duration-200'
+                                className=' font-semibold text-neutral-700 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline transition-all duration-200'
                             >
                                 {nav.label}
                             </Link>
