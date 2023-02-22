@@ -19,7 +19,7 @@ export default function Home() {
     { name: 'React', path: '/SKILLS/react.png' },
     { name: 'Microchip', path: '/SKILLS/microchip.png' },
     { name: 'Arduino', path: '/SKILLS/arduino.png' },
-    { name: 'JavaScript', path: '/SKILLS/js.png' },
+    { name: 'Tailwind css', path: '/SKILLS/tailwind.png' },
     { name: 'Nest js', path: '/SKILLS/nest.png' },
     { name: 'Git', path: '/SKILLS/git.png' },
     { name: 'MongoDB', path: '/SKILLS/mongodb.png' },
@@ -126,13 +126,16 @@ export default function Home() {
       <main className='min-h-screen'>
 
         {/* //?--------------------------------------------------------------- */}
-        <section className=' dark:bg-azul-negro sm:grid sm:grid-cols-2 mt-8   '>
+        <section className=' min-h-90vh dark:bg-azul-negro sm:grid sm:grid-cols-2  mt-10  '>
 
           <div className='m-auto px-5 text-center '>
             <h2 className='text-2xl my-3'>Hi 🖖,</h2>
             <h1 className='text-6xl font-bold '>{"I'm"} <span className='text-red-400'>Franck</span></h1>
             <h3 className='text-3xl my-3 font-semibold text-purple-900 dark:text-purple-500'>{'< Web Developer />'}</h3>
-            <div className='flex justify-center items-end my-4 mx-auto border-b p-1 w-fit hover:border-red-500 hover:text-red-500 cursor-pointer hover:scale-125 transition-all duration-300'>
+            <p className='text-gray-700 mb-8 dark:text-white text-xl'>
+              Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos.
+            </p>
+            <div className='animate-bounce hover:animate-none flex justify-center items-end my-4 mx-auto border-b p-1 w-fit border-black dark:border-gray-200 dark:hover:border-red-500 hover:border-red-500 hover:text-red-500 cursor-pointer hover:scale-125 transition-all duration-300'>
               <Image
                 className='peer w-8 '
                 src="/iconos/pdf.png"
@@ -142,9 +145,6 @@ export default function Home() {
               />
               <h3 className='font-semibold'>Download</h3>
             </div>
-            <p className='text-gray-700 mb-8 dark:text-white text-xl'>
-              Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos.
-            </p>
             <div className='flex items-center gap-8 justify-center'>
               {contactos.map((contact, index) => (
                 <Button key={index} className='peer'>
@@ -185,7 +185,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='flex justify-center items-center col-span-2 mb-12 my-12'>
+          <div className='flex justify-center items-center col-span-2 mb-12 '>
             <Link href={"#contact"}>
               <Button className='bg-red-500 text-white px-6 text-lg '>Contact me!</Button>
             </Link>
@@ -195,7 +195,7 @@ export default function Home() {
 
         {/* //?--------------------------------------------------------------- */}
 
-        <hr id='projects' className=' my-20 border-black dark:border-gray-400' />
+        <hr id='projects' className=' my-10 border-black dark:border-gray-400' />
 
         {/* //?------------- */}
 
@@ -244,13 +244,13 @@ export default function Home() {
         <section >
           <div className='grid md:grid-cols-2 my-8'>
             <div className='grid gap-y-8 my-8 mx-4 md:mx-0'>
-              <h1 className='text-5xl font-bold tex'>About</h1>
-              <p className='text-xl md:text-2xl'>Mi nombre es Francisco Angel Romero Tepal, trabajo en el mundo de la tecnología creando y dando vida a ideas.</p>
-              <p className='text-xl md:text-2xl'>Soy Desarrollador Full-Stack con conocimientos en <b className='text-purple-900 dark:text-purple-500 font-semibold'> Frontend, Backend y IoT. </b> Desarrollo sitios web, aplicaciones web, herramientas para usuarios y dispositivos de IoT.</p>
+              <h1 className='text-5xl font-bold tex'>About me</h1>
+              <p className='text-xl md:text-xl'>Mi nombre es Francisco Angel Romero Tepal, trabajo en el mundo de la tecnología creando y dando vida a ideas.</p>
+              <p className='text-xl md:text-xl'>Soy Desarrollador Full-Stack con conocimientos en <b className='text-purple-900 dark:text-purple-500 font-semibold'> Frontend, Backend y IoT. </b> Desarrollo sitios web, aplicaciones web, herramientas para usuarios y dispositivos de IoT.</p>
             </div>
             <div className='m-auto '>
               <Image
-                className='peer w-48 sm:w-80 lg:w-96  m-auto hover:opacity-50 peer-hover:opacity-50 transition-all duration-300'
+                className='peer w-44 sm:w-52 lg:w-72  m-auto hover:opacity-50 peer-hover:opacity-50 transition-all duration-300'
                 src="/mi_foto_pro.jpeg"
                 alt="Imagen de Francisco Angel Romero Tepal"
                 width={500}
@@ -261,46 +261,47 @@ export default function Home() {
           </div>
 
           <div className='grid md:grid-cols-2 gap-8 '>
+              <div className=' mx-4 md:mx-0 grid items-stretch'>
+                <h1 className='text-4xl font-bold my-4'>Experience</h1>
+                <hr className='border-black dark:border-gray-400'/>
+                <div className=' min-h-10r p-4 m-4 border rounded-lg grid-3-4 border-blue-700'>
+                  <div>
+                    <h3 className='text-2xl font-semibold'>Desarrollo de aplicaciones para IoT.</h3>
+                    <p>Grupo Accesa</p>
+                    <p>Current: Otoño 2021</p>
+                  </div>
+                  <div className='m-auto'>
+                    <Image
+                      className='peer w-20 sm:w-24   hover:scale-125 m-auto'
+                      src="/logos/accesa2.png"
+                      alt="Grupo Accesa"
+                      width={500}
+                      height={500}
+                    />
+                  </div>
+                </div>
+                <div className='min-h-10r p-4 m-4 border rounded-lg grid-3-4 border-orange-500'>
+                  <div>
+                    <h3 className='text-2xl font-semibold'>Desarrollo de dispositivos en IoT</h3>
+                    <p>Laboratorio Sled</p>
+                    <p>Sesson: Primavera 2019 - Otoño 2020</p>
+                  </div>
+                  <div className='m-auto'>
+                    <Image
+                      className='peer w-20 sm:w-24  hover:scale-125 m-auto'
+                      src="/logos/fce2.png"
+                      alt="Grupo Accesa"
+                      width={500}
+                      height={500}
+                    />
+                  </div>
+                </div>
+              </div>
+
             <div className=' mx-4 md:mx-0 grid items-stretch'>
-
-              <h1 className='text-4xl font-bold'>Experience</h1>
-              <hr />
-              <div className='p-4 m-4 border rounded-lg grid-3-4 border-blue-700'>
-                <div>
-                  <h3 className='text-2xl font-semibold'>Desarrollo de aplicaciones para IoT.</h3>
-                  <p>Grupo Accesa</p>
-                  <p>Current: Otoño 2021</p>
-                </div>
-                <div className='m-auto'>
-                  <Image
-                    className='peer w-36 sm:w-48  hover:scale-125 m-auto'
-                    src="/logos/accesa.png"
-                    alt="Grupo Accesa"
-                    width={500}
-                    height={500}
-                  />
-                </div>
-              </div>
-              <div className='p-4 m-4 border rounded-lg grid-3-4 border-orange-500'>
-                <div>
-                  <h3 className='text-2xl font-semibold'>Desarrollo de dispositivos en IoT</h3>
-                  <p>Laboratorio Sled</p>
-                  <p>Sesson: Primavera 2019 - Otoño 2020</p>
-                </div>
-                <div className='m-auto'>
-                  <Image
-                    className='peer w-36 sm:w-48  hover:scale-125 m-auto'
-                    src="/logos/fce.png"
-                    alt="Grupo Accesa"
-                    width={500}
-                    height={500}
-                  />
-                </div>
-              </div>
-
-              <h1 className='text-4xl font-bold mt-8'>Education</h1>
-              <hr />
-              <div className='p-4 m-4 border rounded-lg grid-3-4 border-green-500'>
+              <h1 className='text-4xl font-bold my-4'>Education</h1>
+              <hr className='border-black dark:border-gray-400'/>
+              <div className=' min-h-10r p-4 m-4 border rounded-lg grid-3-4 border-green-500'>
                 <div>
                   <h3 className='text-2xl font-semibold'>Platzi</h3>
                   <p>Escuela en linea</p>
@@ -308,7 +309,7 @@ export default function Home() {
                 </div>
                 <div className='m-auto'>
                   <Image
-                    className='peer w-36 sm:w-48  hover:scale-125 m-auto'
+                    className='peer w- sm:w-20  hover:scale-125 m-auto'
                     src="/logos/platzi.png"
                     alt="Grupo Accesa"
                     width={500}
@@ -316,7 +317,7 @@ export default function Home() {
                   />
                 </div>
               </div>
-              <div className='p-4 m-4 border rounded-lg grid-3-4 border-pink-700'>
+              <div className='min-h-10r p-4 m-4 border rounded-lg grid-3-4 border-pink-700'>
                 <div>
                   <h3 className='text-2xl font-semibold'>Buap</h3>
                   <p>Benemerita Univercidad Autonoma de Puebla</p>
@@ -324,7 +325,7 @@ export default function Home() {
                 </div>
                 <div className='m-auto'>
                   <Image
-                    className='peer w-36 sm:w-48  hover:scale-125 m-auto'
+                    className='peer w-20 sm:w-24  hover:scale-125 m-auto'
                     src="/logos/buap.png"
                     alt="Grupo Accesa"
                     width={500}
@@ -336,7 +337,7 @@ export default function Home() {
             </div>
 
             {/* // */}
-            <div>
+            {/* <div>
               <h1 className='text-4xl font-bold text-center'>Skills</h1>
               <hr />
               <div className='grid gap-8 md:grid-cols-1 C'>
@@ -360,7 +361,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
           </div>
 
@@ -384,8 +385,8 @@ export default function Home() {
 
         <h1 className='md:hidden text-4xl font-semibold text-center m-12'>Contacts</h1>
 
-        <section className='grid md:grid-cols-2 gap-4 p-4'>
-          <div className=' m-auto p-8 rounded-md border border-emerald-600 w-3/4'>
+        <section className=' grid md:grid-cols-2 gap-4 p-4'>
+          <div className=' m-auto p-8 rounded-md border border-emerald-600 w-3/4 bg-black/75 text-white'>
             <h1 className='my-8 text-center text-3xl font-semibold'>Mend me a Messeges</h1>
             <form onSubmit={enviarDatos} className="grid gap-y-12 ">
               <input
@@ -394,7 +395,7 @@ export default function Home() {
                 placeholder="Company or Name"
                 onChange={handleChangeData}
                 required
-                className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-black dark:border-gray-400'
+                className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-gray-200'
               />
               <input
                 name='email'
@@ -402,7 +403,7 @@ export default function Home() {
                 placeholder="Email"
                 onChange={handleChangeData}
                 required
-                className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-black dark:border-gray-400'
+                className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-gray-200'
               />
               <textarea
                 name="msg"
@@ -410,7 +411,7 @@ export default function Home() {
                 cols={1}
                 rows={1}
                 placeholder="Write here your messegs"
-                className='h-32 w-11/12 m-auto px-4 bg-transparent border-b outline-none border-black dark:border-gray-400'
+                className='h-32 w-11/12 m-auto px-4 bg-transparent border-b outline-none border-gray-200'
               ></textarea>
 
               <Button type="submit" onClick={enviarDatos}>Send</Button>

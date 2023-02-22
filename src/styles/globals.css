@@ -34,7 +34,12 @@ html{
   display: grid;
   grid-template-columns: 75% 25%;
 }
-
+.min-h-10r{
+  min-height: 10rem;
+}
+.min-h-90vh{
+  min-height: 85vh;
+}
 .animate-spin-slow {
     animation: spin-slow 30s linear infinite;
   }
