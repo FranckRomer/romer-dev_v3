@@ -4,7 +4,8 @@ import Link from "next/link"
 
 
 const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
-    const [project, setProject] = useState({
+    const [project, setProject] = useState(
+        {
         name: "No existe",
         text: "",
         img: "",
@@ -15,12 +16,58 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
         links: [
             { name: "Git", img: "/social/github.png", url: "/" },
         ],
-    })
+    }
+    )
     const proyects = [
         {
             name: "Settings",
-            text: "Esta es una pagina de configuraciones",
-            img: "Settings",
+            text: "Esta es una pagina de configuraciones con el proposito de modificar parametros en los dispositivos electronicos. La pagina cuenta con un inicio de usuarios administrativos e instaladores para recopilar que usuario que ah realizado un cambio o ajuste",
+            img: "/projects/configuraciones.png",
+            skills: [
+                { name: "React", img: "/SKILLS/react.png" },
+                { name: "Next js", img: "/SKILLS/nextjs.png" },
+                { name: "Arduino", img: "/SKILLS/arduino.png" },
+                { name: "MongoDB", img: "/SKILLS/mongodb.png" },
+                { name: "Css", img: "/SKILLS/css.png" },
+            ],
+            links: [
+                { name: "Git", img: "/social/github.png", url: "/" },
+            ],
+        },
+        {
+            name: "Buses",
+            text: "Este es un proyecto de visualizacion de los estados de los autobuses. En un principio comenzo como una pagina de visualizacion para los instaladores, posterior mente fue usada para administrativos y operadores, por lo que se agrego un apartado para configurar datos.",
+            img: "/projects/camiones.png",
+            skills: [
+                { name: "React", img: "/SKILLS/react.png" },
+                { name: "Nest", img: "/SKILLS/nest.png" },
+                { name: "Arduino", img: "/SKILLS/arduino.png" },
+                { name: "MongoDB", img: "/SKILLS/mongodb.png" },
+                { name: "Css", img: "/SKILLS/css.png" },
+            ],
+            links: [
+                { name: "Git", img: "/social/github.png", url: "/" },
+            ],
+        },
+        {
+            name: "Ads",
+            text: 'Proyecto de anuncios para camiones, con el nombre de "proxima parada", muestra la ruta del autobus, en que parada se encuentra actualmente y cada cierto tiempo configurable se muestran anuncios patrocinados.',
+            img: "/projects/anuncios.png",
+            skills: [
+                { name: "React", img: "/SKILLS/react.png" },
+                { name: "Next js", img: "/SKILLS/nextjs.png" },
+                { name: "Css", img: "/SKILLS/css.png" },
+                { name: "Raspberry", img: "/SKILLS/raspberry.png" },
+                { name: "Python", img: "/SKILLS/python.png" },
+            ],
+            links: [
+                { name: "Git", img: "/social/github.png", url: "/" },
+            ],
+        },
+        {
+            name: "Domotica",
+            text: "Proyecto de domotica, con el proposito de automatizar hogares se creo tanto los dispositivos, arquitectura, paginas de usario y paginas de administrativos para lograr el cometido.",
+            img: "/projects/domotica.png",
             skills: [
                 { name: "React", img: "/SKILLS/react.png" },
                 { name: "Nest", img: "/SKILLS/nest.png" },
@@ -51,7 +98,7 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
                 <div className="">
                     <div className="fixed top-0 left-0 w-screen h-screen " onClick={() => setModal(false)} ></div>
 
-                    <div className="border fixed top-0 left-0 right-0 bottom-0 m-auto p-8  bg-black/90 text-white w-full max-w-4xl h-3/4 overflow-x-hidden overflow-y-scroll rounded-md z-50">
+                    <div className="border fixed top-0 left-0 right-0 bottom-0 m-auto p-8 bg-white/95  dark:bg-black/90 text-black dark:text-white w-full max-w-4xl h-4/5 overflow-x-hidden overflow-y-scroll rounded-md z-50">
                         <div onClick={() => setModal(false)} className="flex justify-end">
                             <Image
                                 className='peer w-6 sm:w-6 hover:scale-125 '
@@ -62,20 +109,20 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
                             />
                         </div>
                         <h1 className="text-center text-4xl font-semibold">{project.name}</h1>
-                        <div className="grid md:grid-cols-2 my-8 gap-y-6">
-                            <p className="text-xl text-justify">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum sapiente rem molestias corporis, eligendi, distinctio placeat sequi sed assumenda inventore fugiat culpa in, magnam minima illum obcaecati veniam? Natus, tenetur?
+                        <div className="grid md:grid-cols-2 my-8 gap-y-6 ">
+                            <p className="text-xl text-justify m-auto">
+                                {project.text}
                             </p>
                             <Image
-                                className='peer w-40 sm:w-56 m-auto '
-                                src="/iconos/cerrar.png"
-                                alt="cerrar"
-                                width={77}
-                                height={77}
+                                className='peer w-4/5 m-auto hover:scale-125'
+                                src={project.img}
+                                alt={project.name}
+                                width={500}
+                                height={500}
                             />
                         </div>
 
-                        <div className="grid sm:grid-cols-2 gap-4 gap-y-4">
+                        <div className="grid sm:grid-cols-2 gap-14 gap-y-4">
                             <div className="">
                                 <h2 className="text-3xl my-4">
                                     Herramientas
