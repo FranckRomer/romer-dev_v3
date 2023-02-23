@@ -280,7 +280,7 @@ export default function Home() {
                   <div>
                     <h3 className='text-2xl font-semibold'>Desarrollo de aplicaciones para IoT.</h3>
                     <p>Grupo Accesa</p>
-                    <p>Current: Otoño 2021</p>
+                    <p>Current: September 2021</p>
                   </div>
                   <div className='m-auto'>
                     <Image
@@ -296,7 +296,7 @@ export default function Home() {
                   <div>
                     <h3 className='text-2xl font-semibold'>Desarrollo de dispositivos en IoT</h3>
                     <p>Laboratorio Sled</p>
-                    <p>Sesson: Primavera 2019 - Otoño 2020</p>
+                    <p>Sesson: January 2019 - October 2020</p>
                   </div>
                   <div className='m-auto'>
                     <Image
@@ -317,7 +317,7 @@ export default function Home() {
                 <div>
                   <h3 className='text-2xl font-semibold'>Platzi</h3>
                   <p>Escuela en linea</p>
-                  <p>Current: Otoño 2022</p>
+                  <p>Current: October 2022</p>
                 </div>
                 <div className='m-auto'>
                   <Image
@@ -333,7 +333,7 @@ export default function Home() {
                 <div>
                   <h3 className='text-2xl font-semibold'>Buap</h3>
                   <p>Benemerita Univercidad Autonoma de Puebla</p>
-                  <p>Current: Otoño 2015 - Otoño 2020</p>
+                  <p>Current: September 2015 - September 2020</p>
                 </div>
                 <div className='m-auto'>
                   <Image
