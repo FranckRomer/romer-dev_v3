@@ -32,7 +32,7 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
                 
             ],
             links: [
-                { name: "Git", img: "/social/github.png", url: "/" },
+                { name: "Pagina", img: "/social/github.png", url: "/" },
             ],
         },
         {
