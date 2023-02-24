@@ -7,6 +7,7 @@ import { useState } from 'react'
 import Button from '@/components/Button'
 import ModalProject from '@/modals/ModalProject'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -114,8 +115,16 @@ export default function Home() {
     // }
   }
 
-  const setModalProject = (datoshijo:boolean) => {
+  const setModalProject = (datoshijo: boolean) => {
     SetStateWinProject(false);
+  }
+
+  const DescargaCV = async () => {
+    console.log("Se descarga el CV");
+    // const response = await fetch('/ruta/al/archivo/guia.pdf');
+    // const blob = await response.blob();
+    // saveAs(blob, 'guia.pdf');
+
   }
 
   // ?------------------------------
@@ -128,10 +137,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
 
-      <ModalProject 
-        Modal = {stateWinProject}
-        setModal = {setModalProject}
-        SelecttProyect = {selectProject}
+      <ModalProject
+        Modal={stateWinProject}
+        setModal={setModalProject}
+        SelecttProyect={selectProject}
       />
 
       <main className='min-h-screen'>
@@ -146,7 +155,11 @@ export default function Home() {
             <p className='text-gray-700 mb-8 dark:text-white text-xl'>
               Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos.
             </p>
-            <div className='animate-bounce hover:animate-none flex justify-center items-end my-4 mx-auto border-b p-1 w-fit border-black dark:border-gray-200 dark:hover:border-red-500 hover:border-red-500 hover:text-red-500 cursor-pointer hover:scale-125 transition-all duration-300'>
+            <a
+              className='animate-bounce hover:animate-none flex justify-center items-end my-4 mx-auto border-b p-1 w-fit border-black dark:border-gray-200 dark:hover:border-red-500 hover:border-red-500 hover:text-red-500 cursor-pointer hover:scale-125 transition-all duration-300'
+              download="CV_FranciscoRomero"
+              href='/CV_FranciscoRomero.pdf'
+            >
               <Image
                 className='peer w-8 '
                 src="/iconos/pdf.png"
@@ -155,7 +168,7 @@ export default function Home() {
                 height={60}
               />
               <h3 className='font-semibold'>Download CV</h3>
-            </div>
+            </a>
             <div className='flex items-center gap-8 justify-center'>
               {contactos.map((contact, index) => (
                 <Button key={index} className='peer'>
@@ -187,7 +200,7 @@ export default function Home() {
                     src={skill.path}
                     alt={skill.name}
                     width={77}
-                    height={77}                    
+                    height={77}
                   />
                   <p className='text-center mt-2 invisible peer-hover:visible'>{skill.name}</p>
                 </div>
@@ -222,14 +235,14 @@ export default function Home() {
                   src={project.path}
                   alt={project.name}
                   width={500}
-                  height={500}         
-                  onClick = {()=>{SetStateWinProject(true); setSelectProject(project.name)}}         
+                  height={500}
+                  onClick={() => { SetStateWinProject(true); setSelectProject(project.name) }}
                 />
                 <div className='peer sm:absolute  bottom-0  left-0 right-0 opacity-100 peer-hover:opacity-100 hover:opacity-100 m-4 grid transition-all duration-500'>
                   <p className=''>{project.text}</p>
                   <div className='flex justify-between'>
                     <h1 className='text-3xl'>{project.name}</h1>
-                    <div className='cursor-pointer' onClick = {()=>{SetStateWinProject(true); setSelectProject(project.name)}}>
+                    <div className='cursor-pointer' onClick={() => { SetStateWinProject(true); setSelectProject(project.name) }}>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 hover:text-red-400 hover:scale-150">
                         <path fillRule="evenodd" d="M3.75 12a.75.75 0 01.75-.75h13.19l-5.47-5.47a.75.75 0 011.06-1.06l6.75 6.75a.75.75 0 010 1.06l-6.75 6.75a.75.75 0 11-1.06-1.06l5.47-5.47H4.5a.75.75 0 01-.75-.75z" clipRule="evenodd" />
                       </svg>
@@ -272,7 +285,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='grid md:grid-cols-2 gap-8 '>
+          {/* <div className='grid md:grid-cols-2 gap-8 '>
               <div className=' mx-4 md:mx-0 grid items-stretch'>
                 <h1 className='text-4xl font-bold my-4'>Experience</h1>
                 <hr className='border-black dark:border-gray-400'/>
@@ -346,10 +359,10 @@ export default function Home() {
                 </div>
               </div>
 
-            </div>
+            </div> */}
 
-            {/* // */}
-            {/* <div>
+          {/* // */}
+          {/* <div>
               <h1 className='text-4xl font-bold text-center'>Skills</h1>
               <hr />
               <div className='grid gap-8 md:grid-cols-1 C'>
@@ -375,7 +388,7 @@ export default function Home() {
               </div>
             </div> */}
 
-          </div>
+          {/* </div> */}
 
 
         </section>
@@ -385,9 +398,9 @@ export default function Home() {
 
         {/* <hr className=' my-8' /> */}
 
-        {/* <section id='about'>
+        <section>
           <h1>Services</h1>
-        </section> */}
+        </section>
 
         {/* //?--------------------------------------------------------------- */}
 
@@ -395,77 +408,81 @@ export default function Home() {
 
         {/* //?------------- */}
 
-        <h1 className='md:hidden text-4xl font-semibold text-center m-12'>Contacts</h1>
 
-        <section className=' grid md:grid-cols-2 gap-4 p-4'>
-          <div className=' m-auto p-8 rounded-md border border-emerald-600 w-3/4 bg-black/75 text-white'>
-            <h1 className='my-8 text-center text-3xl font-semibold'>Mend me a Messeges</h1>
-            <form onSubmit={enviarDatos} className="grid gap-y-12 ">
-              <input
-                name='company'
-                type="text"
-                placeholder="Company or Name"
-                onChange={handleChangeData}
-                required
-                className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-gray-200'
-              />
-              <input
-                name='email'
-                type="text"
-                placeholder="Email"
-                onChange={handleChangeData}
-                required
-                className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-gray-200'
-              />
-              <textarea
-                name="msg"
-                id="msg"
-                cols={1}
-                rows={1}
-                placeholder="Write here your messegs"
-                className='h-32 w-11/12 m-auto px-4 bg-transparent border-b outline-none border-gray-200'
-              ></textarea>
+        <section className='min-h-screen'>
+          <h1 className='md:hidden text-4xl font-semibold text-center m-12'>Contacts</h1>
 
-              <Button type="submit" onClick={enviarDatos}>Send</Button>
-            </form>
+          <div className=' grid md:grid-cols-2 gap-4 p-4'>
+            <div className=' m-auto p-8 rounded-md border border-emerald-600 w-3/4 bg-black/75 text-white'>
+              <h1 className='my-8 text-center text-3xl font-semibold'>Mend me a Messeges</h1>
+              <form onSubmit={enviarDatos} className="grid gap-y-12 ">
+                <input
+                  name='company'
+                  type="text"
+                  placeholder="Company or Name"
+                  onChange={handleChangeData}
+                  required
+                  className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-gray-200'
+                />
+                <input
+                  name='email'
+                  type="text"
+                  placeholder="Email"
+                  onChange={handleChangeData}
+                  required
+                  className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-gray-200'
+                />
+                <textarea
+                  name="msg"
+                  id="msg"
+                  cols={1}
+                  rows={1}
+                  placeholder="Write here your messegs"
+                  className='h-32 w-11/12 m-auto px-4 bg-transparent border-b outline-none border-gray-200'
+                ></textarea>
+
+                <Button type="submit" onClick={enviarDatos}>Send</Button>
+              </form>
+            </div>
+
+            <div className='grid'>
+              <h1 className='hidden md:block text-4xl font-semibold text-center'>Contacts</h1>
+              <p className='text-center text-xl font-semibold my-12 md:m-0'>
+                {'“La tecnología esta en una constante evolución, por lo que la mejor forma de estar actualizado es con un constante aprendizaje”'}
+              </p>
+              <div className='hidden md:flex gap-2 items-center m-auto'>
+                <Image
+                  className='peer w-16 sm:w-20  m-auto'
+                  src="/contact3.png"
+                  alt="Francisco Angel Romero Tepal"
+                  width={500}
+                  height={500}
+                />
+                <p className='text-3xl font-semibold'>Francisco Romero</p>
+              </div>
+              <hr />
+              <h1 className='text-3xl font-semibold'>Redes</h1>
+              <div className='flex items-center gap-8 justify-center '>
+                {contactos.map((contact, index) => (
+                  <Button key={index}>
+                    <Link href={contact.url} className='block justify-center gap-y-4 '>
+                      <Image
+                        className='peer w-8 md:w-12  mx-auto'
+                        src={contact.path}
+                        alt={contact.name}
+                        width={100}
+                        height={100}
+                      />
+                      <p>{contact.name}</p>
+                    </Link>
+                    {/* <p className='text-center mt-2 invisible peer-hover:visible'>{contact.name}</p> */}
+                  </Button>
+                ))}
+
+              </div>
+            </div>
           </div>
 
-          <div className='grid'>
-            <h1 className='hidden md:block text-4xl font-semibold text-center'>Contacts</h1>
-            <p className='text-center text-xl font-semibold my-12 md:m-0'>
-              {'“La tecnología esta en una constante evolución, por lo que la mejor forma de estar actualizado es con un constante aprendizaje”'}
-            </p>
-            <div className='hidden md:flex gap-2 items-center m-auto'>
-              <Image
-                className='peer w-16 sm:w-20  m-auto'
-                src="/contact3.png"
-                alt="Francisco Angel Romero Tepal"
-                width={500}
-                height={500}
-              />
-              <p className='text-3xl font-semibold'>Francisco Romero</p>
-            </div>
-            <hr />
-            <h1 className='text-3xl font-semibold'>Redes</h1>
-            <div className='flex items-center gap-8 justify-center '>
-              {contactos.map((contact, index) => (
-                <Button key={index}>
-                  <Link href={contact.url} className='block justify-center gap-y-4 '>
-                    <Image
-                      className='peer w-8 md:w-12  mx-auto'
-                      src={contact.path}
-                      alt={contact.name}
-                      width={100}
-                      height={100}
-                    />
-                    <p>{contact.name}</p>
-                  </Link>
-                  {/* <p className='text-center mt-2 invisible peer-hover:visible'>{contact.name}</p> */}
-                </Button>
-              ))}
-
-            </div>
-          </div>
         </section>
       </main>
 
