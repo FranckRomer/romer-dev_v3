@@ -114,7 +114,7 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
                                 {project.text}
                             </p>
                             <Image
-                                className='peer w-4/5 m-auto hover:scale-125'
+                                className='peer w-4/5 m-auto hover:scale-150'
                                 src={project.img}
                                 alt={project.name}
                                 width={500}
