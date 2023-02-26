@@ -33,9 +33,9 @@ export default function Home() {
   ];
 
   const contactos = [
-    { name: 'WhatsApp', path: '/social/whatsapp.png', url: "/" },
-    { name: 'Linkedin', path: '/social/linkedin.png', url: "/" },
-    { name: 'GitHub', path: '/social/github.png', url: "/" },
+    // { name: 'WhatsApp', path: '/social/whatsapp.png', url: "/" },
+    { name: 'Linkedin', path: '/social/linkedin.png', url: "https://www.linkedin.com/in/francisco-angel-romero-tepal-a942b5202/" },
+    { name: 'GitHub', path: '/social/github.png', url: "https://github.com/FranckRomer" },
   ];
 
   const projects = [
@@ -45,44 +45,60 @@ export default function Home() {
     { name: 'Domotica', path: '/projects/domotica.png', text: "Page of show devices of the buses", url: "/" },
   ]
 
-  const allSkills = [
-    {
-      name: "Fronted", text: "", skills: [
-        { name: 'Html', path: '/SKILLS/html.png' },
-        { name: 'Css', path: '/SKILLS/css.png' },
-        { name: 'JavaScript', path: '/SKILLS/js.png' },
-        { name: 'React', path: '/SKILLS/react.png' },
-        { name: 'Next js', path: '/SKILLS/nextjs.png' },
-        { name: 'Tailwind', path: '/SKILLS/tailwind.png' },
-      ]
-    },
-    {
-      name: "Backend", text: "", skills: [
-        { name: 'JavaScript', path: '/SKILLS/js.png' },
-        { name: 'Node js', path: '/SKILLS/nodejs.png' },
-        { name: 'Nest js', path: '/SKILLS/nest.png' },
-        { name: 'Mongo Db', path: '/SKILLS/mongodb.png' },
-        { name: 'Postgres', path: '/SKILLS/postgres.png' },
-      ]
-    },
-    {
-      name: "IoT", text: "", skills: [
-        { name: 'Arduino', path: '/SKILLS/arduino.png' },
-        { name: 'C++', path: '/SKILLS/C++.png' },
-        { name: 'Microchip', path: '/SKILLS/microchip.png' },
-        { name: 'Raspberry', path: '/SKILLS/raspberry.png' },
-      ]
-    },
-    {
-      name: "Other", text: "", skills: [
-        { name: 'Git', path: '/SKILLS/git.png' },
-        { name: 'Linux', path: '/SKILLS/linux.png' },
-        { name: 'Matlab', path: '/SKILLS/matlab.png' },
-        { name: 'Figma', path: '/SKILLS/figma.png' },
-        { name: 'Notion', path: '/SKILLS/notion.png' },
-      ]
-    },
+  const services = [
+    { name:"Landing Page", text:"Creating a landing-page turnkey website from 14 days", },
+    { name:"Web Application", text:"Creating a web application turnkey website from 50 days", },
+    { name:"Micro - Services", text:"Creating a web application turnkey website from 50 days", },
+    { name:"CRUD Application", text:"Creating a web application turnkey website from 50 days", },
+    { name:"API Services", text:"Creating a web application turnkey website from 50 days", },
+    { name:"Device Automation", text:"Creating a web application turnkey website from 50 days", },
   ]
+
+  const contactPage = [
+    { name: 'Phone', img: '/iconos/telefono.png', text: "(+52) 22-11-16-08-85", link: "/#contact" },
+    { name: 'Email', img: '/iconos/email2.png', text: "contact@romer-dev.com", link: "/#contact" },
+    { name: 'Linkedin', img: '/social/linkedin.png', text: "Francisco Angel Romero Tepal", link: "https://www.linkedin.com/in/francisco-angel-romero-tepal-a942b5202/" },
+    // { name: 'GitHub', img: '/social/github.png', text: "FranckRomer", link: "https://github.com/FranckRomer" },
+  ]
+
+  // const allSkills = [
+  //   {
+  //     name: "Fronted", text: "", skills: [
+  //       { name: 'Html', path: '/SKILLS/html.png' },
+  //       { name: 'Css', path: '/SKILLS/css.png' },
+  //       { name: 'JavaScript', path: '/SKILLS/js.png' },
+  //       { name: 'React', path: '/SKILLS/react.png' },
+  //       { name: 'Next js', path: '/SKILLS/nextjs.png' },
+  //       { name: 'Tailwind', path: '/SKILLS/tailwind.png' },
+  //     ]
+  //   },
+  //   {
+  //     name: "Backend", text: "", skills: [
+  //       { name: 'JavaScript', path: '/SKILLS/js.png' },
+  //       { name: 'Node js', path: '/SKILLS/nodejs.png' },
+  //       { name: 'Nest js', path: '/SKILLS/nest.png' },
+  //       { name: 'Mongo Db', path: '/SKILLS/mongodb.png' },
+  //       { name: 'Postgres', path: '/SKILLS/postgres.png' },
+  //     ]
+  //   },
+  //   {
+  //     name: "IoT", text: "", skills: [
+  //       { name: 'Arduino', path: '/SKILLS/arduino.png' },
+  //       { name: 'C++', path: '/SKILLS/C++.png' },
+  //       { name: 'Microchip', path: '/SKILLS/microchip.png' },
+  //       { name: 'Raspberry', path: '/SKILLS/raspberry.png' },
+  //     ]
+  //   },
+  //   {
+  //     name: "Other", text: "", skills: [
+  //       { name: 'Git', path: '/SKILLS/git.png' },
+  //       { name: 'Linux', path: '/SKILLS/linux.png' },
+  //       { name: 'Matlab', path: '/SKILLS/matlab.png' },
+  //       { name: 'Figma', path: '/SKILLS/figma.png' },
+  //       { name: 'Notion', path: '/SKILLS/notion.png' },
+  //     ]
+  //   },
+  // ]
   // 
   // 
   // 
@@ -397,9 +413,18 @@ export default function Home() {
         {/* //?--------------------------------------------------------------- */}
 
         {/* <hr className=' my-8' /> */}
+        <hr className=' my-20 border-black dark:border-gray-400' />
 
         <section>
-          <h1>Services</h1>
+          <h1 className='text-5xl font-semibold text-center'>Services</h1>
+          <div className='grid grid-cols-2 gap-12  my-12'>
+            {services.map((service, index)=>(
+              <div key={index} className='max-w-sm h-72 md:h-auto block border rounded-md m-auto p-6 hover:shadow-md hover:shadow-gray-500 dark:hover:shadow-stone-700 border-gray-600 dark:border-stone-500'>
+                <h1 className='text-2xl font-semibold'>{service.name}</h1>
+                <p className='text-xl text-gray-800 dark:text-stone-300'>{service.text}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* //?--------------------------------------------------------------- */}
@@ -410,11 +435,11 @@ export default function Home() {
 
 
         <section className='min-h-screen'>
-          <h1 className='md:hidden text-4xl font-semibold text-center m-12'>Contacts</h1>
+          <h1 className=' text-4xl font-semibold text-center m-12'>{"Let's work to Together"}</h1>
 
           <div className=' grid md:grid-cols-2 gap-4 p-4'>
-            <div className=' m-auto p-8 rounded-md border border-emerald-600 w-3/4 bg-black/75 text-white'>
-              <h1 className='my-8 text-center text-3xl font-semibold'>Mend me a Messeges</h1>
+            <div className=' m-auto p-8 rounded-sm border border-emerald-600 w-3/4 bg-black/75 text-white'>
+              <h1 className='my-8 text-center text-3xl font-semibold'>Mend me a Messege</h1>
               <form onSubmit={enviarDatos} className="grid gap-y-12 ">
                 <input
                   name='company'
@@ -446,40 +471,25 @@ export default function Home() {
             </div>
 
             <div className='grid'>
-              <h1 className='hidden md:block text-4xl font-semibold text-center'>Contacts</h1>
-              <p className='text-center text-xl font-semibold my-12 md:m-0'>
-                {'“La tecnología esta en una constante evolución, por lo que la mejor forma de estar actualizado es con un constante aprendizaje”'}
-              </p>
-              <div className='hidden md:flex gap-2 items-center m-auto'>
-                <Image
-                  className='peer w-16 sm:w-20  m-auto'
-                  src="/contact3.png"
-                  alt="Francisco Angel Romero Tepal"
-                  width={500}
-                  height={500}
-                />
-                <p className='text-3xl font-semibold'>Francisco Romero</p>
-              </div>
-              <hr />
-              <h1 className='text-3xl font-semibold'>Redes</h1>
-              <div className='flex items-center gap-8 justify-center '>
-                {contactos.map((contact, index) => (
-                  <Button key={index}>
-                    <Link href={contact.url} className='block justify-center gap-y-4 '>
-                      <Image
-                        className='peer w-8 md:w-12  mx-auto'
-                        src={contact.path}
-                        alt={contact.name}
-                        width={100}
-                        height={100}
-                      />
-                      <p>{contact.name}</p>
-                    </Link>
-                    {/* <p className='text-center mt-2 invisible peer-hover:visible'>{contact.name}</p> */}
-                  </Button>
-                ))}
+              <h1 className='text-4xl text-center mb-12 font-semibold '>{"Contact's"}</h1>
+              {/* <hr /> */}
+              {contactPage.map((contact, index) => (
+                <Link href={contact.link} className='flex gap-8 items-center mx-auto p-4 border rounded-md my-4 w-full hover:text-blue-500 hover:border-blue-500' key={index}>
+                  <Image
+                    className='peer w-8 sm:w-10  dark:invert'
+                    src={contact.img}
+                    alt="Grupo Accesa"
+                    width={500}
+                    height={500}
+                  />
+                  <div>
+                    <h2 className='text-2xl font-semibold'>{contact.name}</h2>
+                    <p className='text-xl'>{contact.text}</p>
+                  </div>
+                </Link>
 
-              </div>
+              ))}
+
             </div>
           </div>
 
@@ -489,3 +499,41 @@ export default function Home() {
     </>
   )
 }
+
+
+
+// <div className='grid'>
+//               <h1 className='hidden md:block text-4xl font-semibold text-center'>Contacts</h1>
+//               <p className='text-center text-xl font-semibold my-12 md:m-0'>
+//                 {'“La tecnología esta en una constante evolución, por lo que la mejor forma de estar actualizado es con un constante aprendizaje”'}
+//               </p>
+//               <div className='hidden md:flex gap-2 items-center m-auto'>
+//                 <Image
+//                   className='peer w-16 sm:w-20  m-auto'
+//                   src="/contact3.png"
+//                   alt="Francisco Angel Romero Tepal"
+//                   width={500}
+//                   height={500}
+//                 />
+//                 <p className='text-3xl font-semibold'>Francisco Romero</p>
+//               </div>
+//               <hr />
+//               <h1 className='text-3xl font-semibold'>Redes</h1>
+//               <div className='flex items-center gap-8 justify-center '>
+//                 {contactos.map((contact, index) => (
+//                   <Button key={index}>
+//                     <Link href={contact.url} className='block justify-center gap-y-4 '>
+//                       <Image
+//                         className='peer w-8 md:w-12  mx-auto'
+//                         src={contact.path}
+//                         alt={contact.name}
+//                         width={100}
+//                         height={100}
+//                       />
+//                       <p>{contact.name}</p>
+//                     </Link>
+//                   </Button>
+//                 ))}
+
+//               </div>
+//             </div>
