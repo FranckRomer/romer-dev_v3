@@ -7,8 +7,9 @@ const Layout = ({children}:any) => {
     return (
         <>
             <Head>
-                <title>Portfolio</title>
-                <meta name='description' content='Create Dark Mode in Next js and tailwind' />
+                <title>Romer-Dev.com</title>
+                <meta name='description' content='Pagina principal de Francisco Angel Romero Tepal' />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className='min-h-screen flex flex-col'>
                 <Header/>

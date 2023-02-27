@@ -8,7 +8,7 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
         {
         name: "No existe",
         text: "",
-        img: "",
+        img: "/projects/config2.png",
         skills: [
             { name: "React", img: "/SKILLS/react.png" },
             { name: "Nest", img: "/SKILLS/nest.png" },
@@ -89,14 +89,14 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
 
     useEffect(() => {
         let proyectoEncontrado = proyects.find(proyectfind => proyectfind.name === SelecttProyect);
-        console.log(proyectoEncontrado);
+        // console.log(proyectoEncontrado);
         if (proyectoEncontrado !== undefined) {
             setProject(proyectoEncontrado)
         } else {
             // alert("EL proyecto aun no esta registrado para este uso")
             console.log("Esto proyecto no existe");
         }
-    })
+    },[])
 
     //
     return (
@@ -117,7 +117,7 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
                         </div>
                         <h1 className="text-center text-4xl font-semibold">{project.name}</h1>
                         <div className="grid md:grid-cols-2 my-8 gap-y-6 ">
-                            <p className="text-xl text-justify m-auto">
+                            <p className="text-xl m-auto">
                                 {project.text}
                             </p>
                             <Image
