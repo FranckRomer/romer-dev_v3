@@ -35,15 +35,15 @@ export default function Home() {
 
   const contactos = [
     // { name: 'WhatsApp', path: '/social/whatsapp.png', url: "/" },
-    { name: 'Linkedin', path: '/social/linkedin.png', url: "https://www.linkedin.com/in/francisco-angel-romero-tepal-a942b5202/" },
+    { name: 'Linkedin', path: '/social/linkedin.png', url: "www.linkedin.com/in/franckromer" },
     { name: 'GitHub', path: '/social/github.png', url: "https://github.com/FranckRomer" },
   ];
 
   const projects = [
-    { name: 'Settings', path: '/projects/configuraciones.png', text: "Page of show devices of the buses", url: "/" },
+    { name: 'Settings', path: '/projects/configuraciones.png', text: "Page for smart home installers ", url: "/" },
     { name: 'Buses', path: '/projects/camiones.png', text: "Page of show devices of the buses", url: "/" },
-    { name: 'Ads', path: '/projects/anuncios.png', text: "Page of show devices of the buses", url: "/" },
-    { name: 'Domotica', path: '/projects/domotica.png', text: "Page of show devices of the buses", url: "/" },
+    { name: 'Ads', path: '/projects/anuncios.png', text: "Ad project", url: "/" },
+    { name: 'Smart Home', path: '/projects/domotica.png', text: "Smart home project", url: "/" },
   ]
 
   const services = [
@@ -58,7 +58,7 @@ export default function Home() {
   const contactPage = [
     { name: 'Phone', img: '/iconos/telefono.png', text: "(+52) 22-11-16-08-85", link: "/#contact" },
     { name: 'Email', img: '/iconos/email2.png', text: "contact@romer-dev.com", link: "/#contact" },
-    { name: 'Linkedin', img: '/social/linkedin.png', text: "Francisco Angel Romero Tepal", link: "https://www.linkedin.com/in/francisco-angel-romero-tepal-a942b5202/" },
+    { name: 'Linkedin', img: '/social/linkedin.png', text: "Francisco Angel Romero Tepal", link: "www.linkedin.com/in/franckromer" },
     // { name: 'GitHub', img: '/social/github.png', text: "FranckRomer", link: "https://github.com/FranckRomer" },
   ]
 
@@ -80,7 +80,7 @@ export default function Home() {
   // *---------------------------------------------
 
 
-  const enviarDatos = async (e:any) => {
+  const enviarDatos = async (e: any) => {
     e.preventDefault()
     console.log(datosUsuario)
     try {
@@ -134,10 +134,11 @@ export default function Home() {
             <h1 className='text-6xl font-bold '>{"I'm"} <span className='text-red-400'>Franck</span></h1>
             <h3 className='text-3xl my-3 font-semibold text-purple-900 dark:text-purple-500'>{'< Web Developer />'}</h3>
             <p className='text-gray-700 mb-8 dark:text-white text-xl'>
-              Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos.
+              {/* Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos. */}
+              Web applications development, CRUD application, API REST Services and Device automation
             </p>
             <a
-              className='animate-bounce hover:animate-none flex justify-center items-end my-4 mx-auto border-b p-1 w-fit border-black dark:border-gray-200 dark:hover:border-red-500 hover:border-red-500 hover:text-red-500 cursor-pointer hover:scale-125 transition-all duration-300'
+              className='animate-bounce hover:animate-none flex justify-center items-end my-6 mx-auto border-b p-1 w-fit border-black dark:border-gray-200 dark:hover:border-red-500 hover:border-red-500 hover:text-red-500 cursor-pointer hover:scale-125 transition-all duration-300'
               download="CV_FranciscoRomero"
               href='/CV_FranciscoRomero.pdf'
             >
@@ -200,7 +201,7 @@ export default function Home() {
 
         {/* //?--------------------------------------------------------------- */}
 
-        <hr id='projects' className=' my-10 border-black dark:border-gray-400' />
+        <hr id='projects' className=' my-20 border-black dark:border-gray-400' />
 
         {/* //?------------- */}
 
@@ -235,7 +236,7 @@ export default function Home() {
           </div>
 
           <div className='flex justify-center items-center col-span-2 mb-12 my-12'>
-            <Link href={"/contact"}>
+            <Link href={"/projects"}>
               <Button className='bg-red-500 text-white px-6 text-lg '>More projects</Button>
             </Link>
           </div>
@@ -251,8 +252,14 @@ export default function Home() {
           <div className='grid md:grid-cols-2 my-8'>
             <div className='grid gap-y-8 my-8 mx-4 md:mx-0'>
               <h1 className='text-5xl font-bold tex'>About me</h1>
-              <p className='text-xl md:text-xl'>Mi nombre es Francisco Angel Romero Tepal, trabajo en el mundo de la tecnología creando y dando vida a ideas.</p>
-              <p className='text-xl md:text-xl'>Soy Desarrollador Full-Stack con conocimientos en <b className='text-purple-900 dark:text-purple-500 font-semibold'> Frontend, Backend y IoT. </b> Desarrollo sitios web, aplicaciones web, herramientas para usuarios y dispositivos de IoT.</p>
+              <p className='text-xl md:text-xl'>
+                {/* Mi nombre es Francisco Angel Romero Tepal, trabajo en el mundo de la tecnología creando y dando vida a ideas. */}
+                My name is Francisco Angel Romero Tepal, I work in the world of technology creating and bringing ideas
+              </p>
+              <p className='text-xl md:text-xl'>
+                {/* Soy Desarrollador Full-Stack con conocimientos en <b className='text-purple-900 dark:text-purple-500 font-semibold'> Frontend, Backend y IoT. </b> Desarrollo sitios web, aplicaciones web, herramientas para usuarios y dispositivos de IoT. */}
+                I am a Full-Stack Developer with knowledge in <b className='text-purple-900 dark:text-purple-500 font-semibold'> Frontend, Backend and IoT. </b> I develop websites, web applications, user tools and IoT devices.
+              </p>
             </div>
             <div className='m-auto '>
               <Image
@@ -370,3 +377,8 @@ export default function Home() {
     </>
   )
 }
+
+// Me dedicó principalmente a resolver problemas.
+// Doy mantenimiento a equipos electrónico, código  y actualizaciones. Asesorías a clientes y compañeros.
+// Desde el momento en que entre la empresa dedico a cambiar y actualizar todos sus equipos y software, debido al desabasto de microcontroladores.
+// He creado código para páginas web (HTML, CSS, Javascript, React js, Next js), desarrollo backend (Node, API REST, Javascript, Nest js) y IoT (Arduino, Python).

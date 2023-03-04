@@ -15,9 +15,9 @@ const Header = () => {
 
     const navigations = [
         { label: 'Home', path: '/', url: "/iconos/home2.png" },
-        { label: 'Projects', path: '#projects', url: "/iconos/projects.png" },
-        { label: 'About', path: '#about', url: "/iconos/about.png" },
-        { label: 'Contacts', path: '#contact', url: "/iconos/contacto2.png" },
+        { label: 'Projects', path: '/#projects', url: "/iconos/projects.png" },
+        { label: 'About', path: '/#about', url: "/iconos/about.png" },
+        { label: 'Contacts', path: '/#contact', url: "/iconos/contacto2.png" },
     ]
     const renderThemeChanger = () => {
         if (!mounted) return null;
