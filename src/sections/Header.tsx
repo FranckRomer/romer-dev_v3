@@ -92,6 +92,8 @@ const Header = () => {
                     </div>
                 </div>
             </header>
+
+            
             {/* //?------------------------------------------- */}
             {menu ?
                 <div className=' relative '>
@@ -126,7 +128,7 @@ const Header = () => {
                         </ul>
                         <hr />
                         <div className='p-4 gap-4 items-center text-xl grid'>
-                            <Link href={"/"} className='font-semibold text-neutral-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline  transition-all duration-200'>
+                            <Link href={"https://github.com/FranckRomer"} className='font-semibold text-neutral-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline  transition-all duration-200'>
                                 <div className='flex items-center justify-start gap-2 '>
                                     <Image
                                         key={0}
@@ -139,7 +141,7 @@ const Header = () => {
                                     <p>GitHub</p>
                                 </div>
                             </Link>
-                            <Link href={"/"} className='font-semibold text-neutral-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline  transition-all duration-200'>
+                            <Link href={"https://www.linkedin.com/in/francisco-angel-romero-tepal-a942b5202/"} className='font-semibold text-neutral-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline  transition-all duration-200'>
                                 <div className='flex items-center justify-start gap-2 '>
                                     <Image
                                         key={0}

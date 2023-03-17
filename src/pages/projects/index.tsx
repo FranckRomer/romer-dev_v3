@@ -8,10 +8,10 @@ const ProjectsPage = () => {
     const [stateWinProject, SetStateWinProject] = useState(false)
     const [selectProject, setSelectProject] = useState("")
     const projects = [
-        { name: 'Settings', path: '/projects/configuraciones.png', text: "Page for smart home installers ", url: "/" },
-        { name: 'Buses', path: '/projects/camiones.png', text: "Page of show devices of the buses", url: "/" },
-        { name: 'Ads', path: '/projects/anuncios.png', text: "Ad project", url: "/" },
-        { name: 'Smart Home', path: '/projects/domotica.png', text: "Smart home project", url: "/" },
+        { name: 'Settings', path: '/projects/lap/Condiguraciones.png', text: "Page for smart home installers ", url: "/" },
+        { name: 'Buses', path: '/projects/lap/Train.png', text: "Page of show devices of the buses", url: "/" },
+        { name: 'Ads', path: '/projects/lap/Ads.png', text: "Ad project", url: "/" },
+        { name: 'Smart Home', path: '/projects/lap/Dana.png', text: "Smart home project", url: "/" },
     ]
 
     const setModalProject = (datoshijo: boolean) => {
@@ -47,7 +47,7 @@ const ProjectsPage = () => {
                                     height={500}
                                     onClick={() => { SetStateWinProject(true); setSelectProject(project.name) }}
                                 />
-                                <div className='peer sm:absolute  bottom-0  left-0 right-0 opacity-100 peer-hover:opacity-100 hover:opacity-100 m-4 grid transition-all duration-500'>
+                                <div className='peer   bottom-0  left-0 right-0 opacity-100 peer-hover:opacity-100 hover:opacity-100 m-4 grid transition-all duration-500'>
                                     <p className=''>{project.text}</p>
                                     <div className='flex justify-between'>
                                         <h1 className='text-3xl'>{project.name}</h1>

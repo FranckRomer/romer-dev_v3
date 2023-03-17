@@ -23,7 +23,7 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
             name: "Settings",
             // text: "Esta es una pagina de configuraciones con el proposito de modificar parametros en los dispositivos electronicos. La pagina cuenta con un inicio de usuarios administrativos e instaladores para recopilar que usuario que ah realizado un cambio o ajuste",
             text: "This is a settings page for the purpose of modifying parameters in electronic devices. The page has a home for administrative users and installers to collect which user has made a change or adjustment",
-            img: "/projects/config2.png",
+            img: "/projects/full_page/config2.png",
             skills: [
                 { name: "React", img: "/SKILLS/react.png" },
                 { name: "Next js", img: "/SKILLS/nextjs.png" },
@@ -40,7 +40,7 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
             name: "Buses",
             // text: "Este es un proyecto de visualizacion de los estados de los autobuses. En un principio comenzo como una pagina de visualizacion para los instaladores, posterior mente fue usada para administrativos y operadores, por lo que se agrego un apartado para configurar datos.",
             text: 'This is a bus status visualization project. Initially it began as a visualization page for installers, later it was used for administrators and operators, so a section was added to configure data.',
-            img: "/projects/train2.png",
+            img: "/projects/full_page/train2.png",
             skills: [
                 { name: "React", img: "/SKILLS/react.png" },
                 { name: "Nest", img: "/SKILLS/nest.png" },
@@ -56,7 +56,7 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
             name: "Ads",
             // text: 'Proyecto de anuncios para camiones, con el nombre de "proxima parada", muestra la ruta del autobus, en que parada se encuentra actualmente y cada cierto tiempo configurable se muestran anuncios patrocinados.',
             text: 'Ads project for trucks, with the name "next stop", shows the route of the bus, which stop it is currently at and from time to time configurable sponsored ads are shown.',
-            img: "/projects/ads2.png",
+            img: "/projects/full_page/ads2.png",
             skills: [
                 { name: "React", img: "/SKILLS/react.png" },
                 { name: "Next js", img: "/SKILLS/nextjs.png" },
@@ -73,7 +73,7 @@ const ModalProject = ({ Modal, setModal, SelecttProyect }: any) => {
             name: "Smart Home",
             // text: "Proyecto de domotica, con el proposito de automatizar hogares se creo tanto los dispositivos, arquitectura, paginas de usario y paginas de administrativos para lograr el cometido.",
             text: 'Smart home project, with the purpose of automating homes, both the devices, architecture, user pages and administrative pages were created to achieve the goal.',
-            img: "/projects/dana2.png",
+            img: "/projects/full_page/dana2.png",
             skills: [
                 { name: "React", img: "/SKILLS/react.png" },
                 { name: "Next js", img: "/SKILLS/nextjs.png" },

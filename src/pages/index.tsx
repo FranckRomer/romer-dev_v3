@@ -14,6 +14,7 @@ export default function Home() {
   const [stateWinProject, SetStateWinProject] = useState(false)
   const [selectProject, setSelectProject] = useState("")
   const [error, setError] = useState(false)
+  const [msgExitoso, setMsgExitoso] = useState(false)
 
   const [datosUsuario, SetDatosUsuario] = useState({
     company: "",
@@ -35,15 +36,16 @@ export default function Home() {
 
   const contactos = [
     // { name: 'WhatsApp', path: '/social/whatsapp.png', url: "/" },
-    { name: 'Linkedin', path: '/social/linkedin.png', url: "www.linkedin.com/in/franckromer" },
+    { name: 'Linkedin', path: '/social/linkedin.png', url: "https://www.linkedin.com/in/francisco-angel-romero-tepal-a942b5202/" },
     { name: 'GitHub', path: '/social/github.png', url: "https://github.com/FranckRomer" },
   ];
 
   const projects = [
-    { name: 'Settings', path: '/projects/configuraciones.png', text: "Page for smart home installers ", url: "/" },
-    { name: 'Buses', path: '/projects/camiones.png', text: "Page of show devices of the buses", url: "/" },
-    { name: 'Ads', path: '/projects/anuncios.png', text: "Ad project", url: "/" },
-    { name: 'Smart Home', path: '/projects/domotica.png', text: "Smart home project", url: "/" },
+    // { name: 'Settings', path: '/projects/configuraciones.png', text: "Page for smart home installers ", url: "/" },
+    // { name: 'Buses', path: '/projects/camiones.png', text: "Page of show devices of the buses", url: "/" },
+    // { name: 'Ads', path: '/projects/anuncios.png', text: "Ad project", url: "/" },
+    // { name: 'Smart Home', path: '/projects/domotica.png', text: "Smart home project", url: "/" },
+    { name: 'This Portfolio', path: '/projects/lap/portfolio.png', text: "Check the code of this project", url: "https://github.com/FranckRomer/romer-dev_v3" },
   ]
 
   const services = [
@@ -87,6 +89,7 @@ export default function Home() {
       const response = await axios.post('/api/sendMsg/sendMe', datosUsuario)
       console.log(response)
       if (response.status === 200) {
+        setMsgExitoso(true)
         // setVentanaBotones(false)
         // props.hijoAPadre()
       }
@@ -132,10 +135,10 @@ export default function Home() {
           <div className='m-auto px-5 text-center '>
             <h2 className='text-2xl my-3'>Hi 🖖,</h2>
             <h1 className='text-6xl font-bold '>{"I'm"} <span className='text-red-400'>Franck</span></h1>
-            <h3 className='text-3xl my-3 font-semibold text-purple-900 dark:text-purple-500'>{'< Web Developer />'}</h3>
+            <h3 className='text-3xl my-3 font-semibold text-purple-900 dark:text-purple-500'>{'< Full-Stack Developer />'}</h3>
             <p className='text-gray-700 mb-8 dark:text-white text-xl'>
               {/* Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos. */}
-              Web applications development, CRUD application, API REST Services and Device automation
+              Web applications, CRUD application, API REST Services and Device automation
             </p>
             <a
               className='animate-bounce hover:animate-none flex justify-center items-end my-6 mx-auto border-b p-1 w-fit border-black dark:border-gray-200 dark:hover:border-red-500 hover:border-red-500 hover:text-red-500 cursor-pointer hover:scale-125 transition-all duration-300'
@@ -199,6 +202,34 @@ export default function Home() {
 
         </section>
 
+        {/* //?------------------------------  SERVICIOS --------------------------------- */}
+
+        {/* <hr className=' my-8' /> */}
+        <hr className=' my-20 border-black dark:border-gray-400' />
+
+        <section>
+          <h1 className='text-5xl font-semibold text-center'>Services</h1>
+          <div className='grid grid-cols-2 gap-12  my-12'>
+            {services.map((service, index) => (
+              <div key={index} className='max-w-sm h-72 md:h-auto grid sm:grid-cols-2 items-center border rounded-md m-auto p-6 hover:shadow-md hover:shadow-gray-500 dark:hover:shadow-stone-700 border-gray-600 dark:border-stone-500'>
+                <div>
+                  <h1 className='text-2xl font-semibold'>{service.name}</h1>
+                  <p className='text-xl text-gray-800 dark:text-stone-300'>{service.text}</p>
+                </div>
+                <div className='hidden sm:block'>
+                  <Image
+                    className='peer w-48 '
+                    src={service.img}
+                    alt="Grupo Accesa"
+                    width={500}
+                    height={500}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* //?--------------------------------------------------------------- */}
 
         <hr id='projects' className=' my-20 border-black dark:border-gray-400' />
@@ -209,9 +240,10 @@ export default function Home() {
           <div>
             <h1 className='text-5xl font-bold text-center'>Portfolio</h1>
           </div>
-          <div className='grid grid-cols-2 '>
+
+          <div className='grid '>
             {projects.map((project, index) => (
-              <div key={index} className=' relative  w-fit m-auto '>
+              <div key={index} className=' relative  w-fit mx-auto my-14'>
                 <Image
                   className='cursor-pointer w-48 sm:w-80 lg:w-96  m-auto hover:opacity-50 peer-hover:opacity-50 transition-all duration-300'
                   src={project.path}
@@ -220,15 +252,15 @@ export default function Home() {
                   height={500}
                   onClick={() => { SetStateWinProject(true); setSelectProject(project.name) }}
                 />
-                <div className='peer sm:absolute  bottom-0  left-0 right-0 opacity-100 peer-hover:opacity-100 hover:opacity-100 m-4 grid transition-all duration-500'>
+                <div className='peer bottom-0  left-0 right-0 opacity-100 peer-hover:opacity-100 hover:opacity-100 m-4 grid transition-all duration-500'>
                   <p className=''>{project.text}</p>
                   <div className='flex justify-between'>
                     <h1 className='text-3xl'>{project.name}</h1>
-                    <div className='cursor-pointer' onClick={() => { SetStateWinProject(true); setSelectProject(project.name) }}>
+                    <Link className='cursor-pointer' href={project.url}>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 hover:text-red-400 hover:scale-150">
                         <path fillRule="evenodd" d="M3.75 12a.75.75 0 01.75-.75h13.19l-5.47-5.47a.75.75 0 011.06-1.06l6.75 6.75a.75.75 0 010 1.06l-6.75 6.75a.75.75 0 11-1.06-1.06l5.47-5.47H4.5a.75.75 0 01-.75-.75z" clipRule="evenodd" />
                       </svg>
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -276,33 +308,7 @@ export default function Home() {
         </section>
 
 
-        {/* //?--------------------------------------------------------------- */}
 
-        {/* <hr className=' my-8' /> */}
-        <hr className=' my-20 border-black dark:border-gray-400' />
-
-        <section>
-          <h1 className='text-5xl font-semibold text-center'>Services</h1>
-          <div className='grid grid-cols-2 gap-12  my-12'>
-            {services.map((service, index) => (
-              <div key={index} className='max-w-sm h-72 md:h-auto grid sm:grid-cols-2 items-center border rounded-md m-auto p-6 hover:shadow-md hover:shadow-gray-500 dark:hover:shadow-stone-700 border-gray-600 dark:border-stone-500'>
-                <div>
-                  <h1 className='text-2xl font-semibold'>{service.name}</h1>
-                  <p className='text-xl text-gray-800 dark:text-stone-300'>{service.text}</p>
-                </div>
-                <div className='hidden sm:block'>
-                  <Image
-                    className='peer w-48 '
-                    src={service.img}
-                    alt="Grupo Accesa"
-                    width={500}
-                    height={500}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* //?--------------------------------------------------------------- */}
 
@@ -372,7 +378,22 @@ export default function Home() {
           </div>
 
         </section>
+
+        <div className='m-auto border w-fit p-4 rounded-md' onClick={() => setMsgExitoso(true)}>
+          <Button className='m-auto'>Activar</Button>
+        </div>
       </main>
+
+
+      {msgExitoso ?
+        <div className='fixed top-0 left-0 right-0 bottom-0 bg-black text-white z-40 w-fit h-fit m-auto'>
+          <h1>Successful Message</h1>
+          <div className='m-auto border w-fit p-4 rounded-md' onClick={() => setMsgExitoso(false)}>
+            <Button className='m-auto'>Acept</Button>
+          </div>
+        </div>
+        : ""
+      }
 
     </>
   )
