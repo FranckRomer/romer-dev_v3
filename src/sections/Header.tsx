@@ -141,7 +141,7 @@ const Header = () => {
                                     <p>GitHub</p>
                                 </div>
                             </Link>
-                            <Link href={"https://www.linkedin.com/in/francisco-angel-romero-tepal-a942b5202/"} className='font-semibold text-neutral-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline  transition-all duration-200'>
+                            <Link href={"https://www.linkedin.com/in/franckromer"} className='font-semibold text-neutral-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-500 hover:underline  transition-all duration-200'>
                                 <div className='flex items-center justify-start gap-2 '>
                                     <Image
                                         key={0}

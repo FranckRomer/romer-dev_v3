@@ -36,7 +36,7 @@ export default function Home() {
 
   const contactos = [
     // { name: 'WhatsApp', path: '/social/whatsapp.png', url: "/" },
-    { name: 'Linkedin', path: '/social/linkedin.png', url: "https://www.linkedin.com/in/francisco-angel-romero-tepal-a942b5202/" },
+    { name: 'Linkedin', path: '/social/linkedin.png', url: "https://www.linkedin.com/in/franckromer" },
     { name: 'GitHub', path: '/social/github.png', url: "https://github.com/FranckRomer" },
   ];
 
@@ -60,7 +60,7 @@ export default function Home() {
   const contactPage = [
     { name: 'Phone', img: '/iconos/telefono.png', text: "(+52) 22-11-16-08-85", link: "/#contact" },
     { name: 'Email', img: '/iconos/email2.png', text: "contact@romer-dev.com", link: "/#contact" },
-    { name: 'Linkedin', img: '/social/linkedin.png', text: "Francisco Angel Romero Tepal", link: "www.linkedin.com/in/franckromer" },
+    { name: 'Linkedin', img: '/social/linkedin.png', text: "Francisco Angel Romero Tepal", link: "https://www.linkedin.com/in/franckromer" },
     // { name: 'GitHub', img: '/social/github.png', text: "FranckRomer", link: "https://github.com/FranckRomer" },
   ]
 
