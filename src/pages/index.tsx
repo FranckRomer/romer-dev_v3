@@ -379,17 +379,17 @@ export default function Home() {
 
         </section>
 
-        <div className='m-auto border w-fit p-4 rounded-md' onClick={() => setMsgExitoso(true)}>
+        {/* <div className='m-auto border w-fit p-4 rounded-md' onClick={() => setMsgExitoso(true)}>
           <Button className='m-auto'>Activar</Button>
-        </div>
+        </div> */}
       </main>
 
 
       {msgExitoso ?
-        <div className='fixed top-0 left-0 right-0 bottom-0 bg-black text-white z-40 w-fit h-fit m-auto'>
-          <h1>Successful Message</h1>
-          <div className='m-auto border w-fit p-4 rounded-md' onClick={() => setMsgExitoso(false)}>
-            <Button className='m-auto'>Acept</Button>
+        <div className='fixed top-0 left-0 right-0 bottom-0 bg-white/40 dark:bg-black/40 border dark:text-white shadow-xl  z-40 w-fit h-fit m-auto px-12 py-8 rounded-lg backdrop-blur-md '>
+          <h1 className='text-2xl m-8 font-semibold '>Successful Message!</h1>
+          <div className='flex' >
+            <Button className='m-auto border  px-4 py-2 rounded-md border-green-700 dark:border-green-400' onClick={() => setMsgExitoso(false)}>Acept</Button>
           </div>
         </div>
         : ""
