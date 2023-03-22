@@ -1,20 +1,27 @@
-import Head from 'next/head'
+// import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+// import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from '@/components/Button'
 import ModalProject from '@/modals/ModalProject'
 import axios from 'axios'
+import useLanguage from '@/hooks/useLanguage'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const { idioma } = useLanguage()
   const [stateWinProject, SetStateWinProject] = useState(false)
   const [selectProject, setSelectProject] = useState("")
   const [error, setError] = useState(false)
   const [msgExitoso, setMsgExitoso] = useState(false)
+  const [language, setLanguage] = useState("spanish")
+
+  useEffect(() => {
+    setLanguage(idioma)
+  })
 
   const [datosUsuario, SetDatosUsuario] = useState({
     company: "",
@@ -22,8 +29,26 @@ export default function Home() {
     msg: "",
   })
 
+  const TextBody =
+  {
+    home: language == "spanish" ?
+      ["Hola 🖖", "Soy", "Francisco", "< Full-Stack Developer />", "Desarrollo de aplicaciones, aplicaciones CRUD, conexion de API REST y automatizacion de dispositivos", "Descarga CV", "Contacta me!"]
+      :
+      ["Hi 🖖", "I'm", "Franck", "< Full-Stack Developer />", "Web applications, CRUD application, API REST Services and Device automation", "Download CV", "Contact me!"]
+    ,
+    services: language == "spanish" ?
+      ["Servicios", "Paginas Web", "Creación aproximada en 14 dias", "Aplicaciones Web", "Creación aproximada en 70 dias", "Micro - Servicio", "Creación depende del proyecto", "Aplicacion CRUD", "Creación aproximada en 25", "Servicio de API", "Creación aproximada en 50", "Automatizacion de Dispositivos", "Creación aproximada en 30"]
+      :
+      ["Services", "Landing Page", "Creating a landing-page turnkey website from 14 days", "Web Application", "Creating a web application turnkey website from 70 days", "Micro - Services", "A micro-services depends on the project", "CRUD Application", "Creating a CRUD application on 25 days", "API Services", "Creating a web API turnkey website from 50 days", "Device Automation", "Creating a web automation turnkey website from 30 days"]
+    ,
+    project: language == "spanish" ?
+    []
+    : []
+    }
+
+
   const skills = [
-    { name: 'React', path: '/SKILLS/react.png' },
+    { name: 'React js', path: '/SKILLS/react.png' },
     { name: 'Microchip', path: '/SKILLS/microchip.png' },
     { name: 'Arduino', path: '/SKILLS/arduino.png' },
     { name: 'Tailwind css', path: '/SKILLS/tailwind.png' },
@@ -41,20 +66,16 @@ export default function Home() {
   ];
 
   const projects = [
-    // { name: 'Settings', path: '/projects/configuraciones.png', text: "Page for smart home installers ", url: "/" },
-    // { name: 'Buses', path: '/projects/camiones.png', text: "Page of show devices of the buses", url: "/" },
-    // { name: 'Ads', path: '/projects/anuncios.png', text: "Ad project", url: "/" },
-    // { name: 'Smart Home', path: '/projects/domotica.png', text: "Smart home project", url: "/" },
     { name: 'This Portfolio', path: '/projects/lap/portfolio.png', text: "Check the code of this project", url: "https://github.com/FranckRomer/romer-dev_v3" },
   ]
 
   const services = [
-    { name: "Landing Page", text: "Creating a landing-page turnkey website from 14 days", img: "/services/ventana-web.png" },
-    { name: "Web Application", text: "Creating a web application turnkey website from 70 days", img: "/services/trabajo.png" },
-    { name: "Micro - Services", text: "A micro-services depends on the project ", img: "/services/frontend.png" },
-    { name: "CRUD Application", text: "Creating a CRUD application on 25 days", img: "/services/backend.png" },
-    { name: "API Services", text: "Creating a web API turnkey website from 50 days", img: "/services/analisis-de-los-datos.png" },
-    { name: "Device Automation", text: "Creating a web automation turnkey website from 30 days", img: "/services/domotica.png" },
+    { name: TextBody.services[1], text: TextBody.services[2], img: "/services/ventana-web.png" },
+    { name: TextBody.services[3], text: TextBody.services[4], img: "/services/trabajo.png" },
+    { name: TextBody.services[5], text: TextBody.services[6], img: "/services/frontend.png" },
+    { name: TextBody.services[7], text: TextBody.services[8], img: "/services/backend.png" },
+    { name: TextBody.services[9], text: TextBody.services[10], img: "/services/analisis-de-los-datos.png" },
+    { name: TextBody.services[11], text: TextBody.services[12], img: "/services/domotica.png" },
   ]
 
   const contactPage = [
@@ -133,12 +154,12 @@ export default function Home() {
         <section className=' min-h-90vh dark:bg-azul-negro sm:grid sm:grid-cols-2  mt-8 '>
 
           <div className='m-auto px-5 text-center '>
-            <h2 className='text-2xl my-3'>Hi 🖖,</h2>
-            <h1 className='text-6xl font-bold '>{"I'm"} <span className='text-red-400'>Franck</span></h1>
+            <h2 className='text-2xl my-3'>{TextBody.home[0]},</h2>
+            <h1 className='text-6xl font-bold '>{TextBody.home[1]} <span className='text-red-400'>{TextBody.home[2]}</span></h1>
             <h3 className='text-3xl my-3 font-semibold text-purple-900 dark:text-purple-500'>{'< Full-Stack Developer />'}</h3>
             <p className='text-gray-700 mb-8 dark:text-white text-xl'>
               {/* Desarrollo de aplicaciones web, algoritmos, bases de datos y automatizacion de dispositivos. */}
-              Web applications, CRUD application, API REST Services and Device automation
+              {TextBody.home[4]}
             </p>
             <a
               className='animate-bounce hover:animate-none flex justify-center items-end my-6 mx-auto border-b p-1 w-fit border-black dark:border-gray-200 dark:hover:border-red-500 hover:border-red-500 hover:text-red-500 cursor-pointer hover:scale-125 transition-all duration-300'
@@ -152,7 +173,7 @@ export default function Home() {
                 width={60}
                 height={60}
               />
-              <h3 className='font-semibold'>Download CV</h3>
+              <h3 className='font-semibold'>{TextBody.home[5]}</h3>
             </a>
             <div className='flex items-center gap-8 justify-center'>
               {contactos.map((contact, index) => (
@@ -196,7 +217,7 @@ export default function Home() {
 
           <div className='flex justify-center items-center col-span-2 mb-12 '>
             <Link href={"#contact"}>
-              <Button className='bg-red-500 text-white px-6 text-lg '>Contact me!</Button>
+              <Button className='bg-red-500 text-white px-6 text-lg '>{TextBody.home[6]}</Button>
             </Link>
           </div>
 
@@ -208,10 +229,10 @@ export default function Home() {
         <hr className=' my-20 border-black dark:border-gray-400' />
 
         <section>
-          <h1 className='text-5xl font-semibold text-center'>Services</h1>
+          <h1 className='text-5xl font-semibold text-center'>{TextBody.services[0]}</h1>
           <div className='grid grid-cols-2 gap-12  my-12'>
             {services.map((service, index) => (
-              <div key={index} className='max-w-sm h-72 md:h-auto grid sm:grid-cols-2 items-center border rounded-md m-auto p-6 hover:shadow-md hover:shadow-gray-500 dark:hover:shadow-stone-700 border-gray-600 dark:border-stone-500'>
+              <div key={index} className='max-w-sm h-72 md:h-60 grid sm:grid-cols-2 items-center border rounded-md m-auto p-6 hover:shadow-md gap-8 hover:shadow-gray-500 dark:hover:shadow-stone-700 border-gray-600 dark:border-stone-500'>
                 <div>
                   <h1 className='text-2xl font-semibold'>{service.name}</h1>
                   <p className='text-xl text-gray-800 dark:text-stone-300'>{service.text}</p>
