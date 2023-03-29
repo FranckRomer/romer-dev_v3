@@ -42,9 +42,18 @@ export default function Home() {
       ["Services", "Landing Page", "Creating a landing-page turnkey website from 14 days", "Web Application", "Creating a web application turnkey website from 70 days", "Micro - Services", "A micro-services depends on the project", "CRUD Application", "Creating a CRUD application on 25 days", "API Services", "Creating a web API turnkey website from 50 days", "Device Automation", "Creating a web automation turnkey website from 30 days"]
     ,
     project: language == "spanish" ?
-    []
-    : []
-    }
+      ["Portafolio", "Mira el código de este proyecto", "Este Portafolio", "Más Proyectos",]
+      : ["Portfolio", "Check the code of this project", "This Portfolio", "More projects",]
+    ,
+    about: language == "spanish" ?
+      ["Sobre mí", "Mi nombre es Francisco  Romero , trabajo en el mundo de la tecnología creando y dando vida a ideas", "Soy desarrollador Full-Stack con conocimientos en ", "Desarrollo sitios web, aplicaciones web, herramientas de ususarios y dispositivos IoT",]
+      : ["About me", "My name is Francisco  Romero , I work in the world of technology creating and bringing ideas", "I am a Full-Stack Developer with knowledge in", " I develop websites, web applications, user tools and IoT devices.",]
+    ,
+    contact: language == "spanish" ?
+      ["Trabajemos juntos", "Envia me un mensaje", "Compañia o Nombre", "Correo Electrónico", "Escribe tu mensaje", "Enviar", "Contactos", "Mensaje Exitoso", "Aceptar"]
+      : ["Let's work to Together", "Mend me a messege", "Company or Name", "Email", "Write here your messegs", "Send", "Contacts", "Successful Message!", "Acept"]
+    ,
+  }
 
 
   const skills = [
@@ -66,7 +75,7 @@ export default function Home() {
   ];
 
   const projects = [
-    { name: 'This Portfolio', path: '/projects/lap/portfolio.png', text: "Check the code of this project", url: "https://github.com/FranckRomer/romer-dev_v3" },
+    { name: TextBody.project[2], path: '/projects/lap/portfolio.png', text: TextBody.project[1], url: "https://github.com/FranckRomer/romer-dev_v3" },
   ]
 
   const services = [
@@ -259,20 +268,23 @@ export default function Home() {
 
         <section className='mt-12'>
           <div>
-            <h1 className='text-5xl font-bold text-center'>Portfolio</h1>
+            <h1 className='text-5xl font-bold text-center'>{TextBody.project[0]}</h1>
           </div>
 
           <div className='grid '>
             {projects.map((project, index) => (
               <div key={index} className=' relative  w-fit mx-auto my-14'>
-                <Image
-                  className='cursor-pointer w-48 sm:w-80 lg:w-96  m-auto hover:opacity-50 peer-hover:opacity-50 transition-all duration-300'
-                  src={project.path}
-                  alt={project.name}
-                  width={500}
-                  height={500}
-                  onClick={() => { SetStateWinProject(true); setSelectProject(project.name) }}
-                />
+                <Link href={project.url}>
+                  <Image
+                    className='cursor-pointer w-48 sm:w-80 lg:w-96  m-auto hover:opacity-50 peer-hover:opacity-50 transition-all duration-300'
+                    src={project.path}
+                    alt={project.name}
+                    width={500}
+                    height={500}
+                  // onClick={() => { SetStateWinProject(true); setSelectProject(project.name) }}
+
+                  />
+                </Link>
                 <div className='peer bottom-0  left-0 right-0 opacity-100 peer-hover:opacity-100 hover:opacity-100 m-4 grid transition-all duration-500'>
                   <p className=''>{project.text}</p>
                   <div className='flex justify-between'>
@@ -290,7 +302,9 @@ export default function Home() {
 
           <div className='flex justify-center items-center col-span-2 mb-12 my-12'>
             <Link href={"/projects"}>
-              <Button className='bg-red-500 text-white px-6 text-lg '>More projects</Button>
+              <Button className='bg-red-500 text-white px-6 text-lg '>
+                {TextBody.project[3]}
+              </Button>
             </Link>
           </div>
         </section>
@@ -304,14 +318,14 @@ export default function Home() {
         <section >
           <div className='grid md:grid-cols-2 my-8'>
             <div className='grid gap-y-8 my-8 mx-4 md:mx-0'>
-              <h1 className='text-5xl font-bold tex'>About me</h1>
+              <h1 className='text-5xl font-bold tex'>{TextBody.about[0]}</h1>
               <p className='text-xl md:text-xl'>
                 {/* Mi nombre es Francisco Angel Romero Tepal, trabajo en el mundo de la tecnología creando y dando vida a ideas. */}
-                My name is Francisco Angel Romero Tepal, I work in the world of technology creating and bringing ideas
+                {TextBody.about[1]}
               </p>
               <p className='text-xl md:text-xl'>
                 {/* Soy Desarrollador Full-Stack con conocimientos en <b className='text-purple-900 dark:text-purple-500 font-semibold'> Frontend, Backend y IoT. </b> Desarrollo sitios web, aplicaciones web, herramientas para usuarios y dispositivos de IoT. */}
-                I am a Full-Stack Developer with knowledge in <b className='text-purple-900 dark:text-purple-500 font-semibold'> Frontend, Backend and IoT. </b> I develop websites, web applications, user tools and IoT devices.
+                {TextBody.about[2]} <b className='text-purple-900 dark:text-purple-500 font-semibold'> Frontend, Backend and IoT. </b> {TextBody.about[3]}
               </p>
             </div>
             <div className='m-auto '>
@@ -339,16 +353,20 @@ export default function Home() {
 
 
         <section className='min-h-screen'>
-          <h1 className=' text-4xl font-semibold text-center m-12'>{"Let's work to Together"}</h1>
+          <h1 className=' text-4xl font-semibold text-center m-12'>
+            {TextBody.contact[0]}
+          </h1>
 
           <div className=' grid md:grid-cols-2 gap-4 p-4'>
             <div className=' m-auto p-8 rounded-sm border  w-3/4 bg-white/25 dark:bg-black/25 dark:text-white'>
-              <h1 className='my-8 text-center text-3xl font-semibold text-blue-400'>Mend me a messege</h1>
+              <h1 className='my-8 text-center text-3xl font-semibold text-blue-400'>
+                {TextBody.contact[1]}
+              </h1>
               <form onSubmit={enviarDatos} className="grid gap-y-12 ">
                 <input
                   name='company'
                   type="text"
-                  placeholder="Company or Name"
+                  placeholder={TextBody.contact[2]}
                   onChange={handleChangeData}
                   required
                   className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-gray-200'
@@ -356,7 +374,7 @@ export default function Home() {
                 <input
                   name='email'
                   type="text"
-                  placeholder="Email"
+                  placeholder={TextBody.contact[3]}
                   onChange={handleChangeData}
                   required
                   className='px-4 w-11/12 m-auto bg-transparent border-b outline-none border-gray-200'
@@ -366,17 +384,21 @@ export default function Home() {
                   id="msg"
                   cols={1}
                   rows={1}
-                  placeholder="Write here your messegs"
+                  placeholder={TextBody.contact[4]}
                   className='h-32 w-11/12 m-auto px-4 bg-transparent border-b outline-none border-gray-200'
                   onChange={(e) => textAreaChange(e.target.value)}
                 ></textarea>
 
-                <Button>Send</Button>
+                <Button>
+                  {TextBody.contact[5]}
+                </Button>
               </form>
             </div>
 
             <div className='grid'>
-              <h1 className='text-4xl text-center mb-12 font-semibold '>{"Contact's"}</h1>
+              <h1 className='text-4xl text-center mb-12 font-semibold '>
+                {TextBody.contact[6]}
+              </h1>
               {/* <hr /> */}
               {contactPage.map((contact, index) => (
                 <Link href={contact.link} className='flex gap-8 items-center mx-auto p-4 border rounded-md my-4 w-full hover:text-blue-500 hover:border-blue-500' key={index}>
@@ -400,17 +422,21 @@ export default function Home() {
 
         </section>
 
-        {/* <div className='m-auto border w-fit p-4 rounded-md' onClick={() => setMsgExitoso(true)}>
+        <div className='m-auto border w-fit p-4 rounded-md' onClick={() => setMsgExitoso(true)}>
           <Button className='m-auto'>Activar</Button>
-        </div> */}
+        </div>
       </main>
 
 
       {msgExitoso ?
         <div className='fixed top-0 left-0 right-0 bottom-0 bg-white/40 dark:bg-black/40 border dark:text-white shadow-xl  z-40 w-fit h-fit m-auto px-12 py-8 rounded-lg backdrop-blur-md '>
-          <h1 className='text-2xl m-8 font-semibold '>Successful Message!</h1>
+          <h1 className='text-2xl m-8 font-semibold '>
+            {TextBody.contact[7]}
+          </h1>
           <div className='flex' >
-            <Button className='m-auto border  px-4 py-2 rounded-md border-green-700 dark:border-green-400' onClick={() => setMsgExitoso(false)}>Acept</Button>
+            <Button className='m-auto border  px-4 py-2 rounded-md border-green-700 dark:border-green-400' onClick={() => setMsgExitoso(false)}>
+              {TextBody.contact[8]}
+            </Button>
           </div>
         </div>
         : ""
