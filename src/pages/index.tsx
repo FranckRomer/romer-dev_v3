@@ -34,7 +34,7 @@ export default function Home() {
     home: language == "spanish" ?
       ["Hola 🖖", "Soy", "Francisco", "< Full-Stack Developer />", "Desarrollo de aplicaciones, aplicaciones CRUD, conexion de API REST y automatizacion de dispositivos", "Descarga CV", "Contacta me!"]
       :
-      ["Hi 🖖", "I'm", "Franck", "< Full-Stack Developer />", "Web applications, CRUD application, API REST Services and Device automation", "Download CV", "Contact me!"]
+      ["Hi 🖖", "I'm", "Franck", "< Full-Stack Developer />", "Web applications, CRUD application, API REST Services and Device automation", "Download CV", "Contact me!"] 
     ,
     services: language == "spanish" ?
       ["Servicios", "Paginas Web", "Creación aproximada en 14 dias", "Aplicaciones Web", "Creación aproximada en 70 dias", "Micro - Servicio", "Creación depende del proyecto", "Aplicacion CRUD", "Creación aproximada en 25", "Servicio de API", "Creación aproximada en 50", "Automatizacion de Dispositivos", "Creación aproximada en 30"]
@@ -42,8 +42,8 @@ export default function Home() {
       ["Services", "Landing Page", "Creating a landing-page turnkey website from 14 days", "Web Application", "Creating a web application turnkey website from 70 days", "Micro - Services", "A micro-services depends on the project", "CRUD Application", "Creating a CRUD application on 25 days", "API Services", "Creating a web API turnkey website from 50 days", "Device Automation", "Creating a web automation turnkey website from 30 days"]
     ,
     project: language == "spanish" ?
-      ["Portafolio", "Mira el código de este proyecto", "Este Portafolio", "Más Proyectos",]
-      : ["Portfolio", "Check the code of this project", "This Portfolio", "More projects",]
+      ["Portafolio", "Mira el código de este proyecto", "Este Portafolio", "Más Proyectos", "Agenda de contatos y login", "Agenda", ""]
+      : ["Portfolio", "Check the code of this project", "This Portfolio", "More projects", "Project of contacts with login", "Contacts", ""]
     ,
     about: language == "spanish" ?
       ["Sobre mí", "Mi nombre es Francisco  Romero , trabajo en el mundo de la tecnología creando y dando vida a ideas", "Soy desarrollador Full-Stack con conocimientos en ", "Desarrollo sitios web, aplicaciones web, herramientas de ususarios y dispositivos IoT",]
@@ -76,6 +76,7 @@ export default function Home() {
 
   const projects = [
     { name: TextBody.project[2], path: '/projects/lap/portfolio.png', text: TextBody.project[1], url: "https://github.com/FranckRomer/romer-dev_v3" },
+    { name: TextBody.project[5], path: '/projects/lap/agenda.png', text: TextBody.project[4], url: "http://agenda.romer-dev.com/" },
   ]
 
   const services = [
@@ -271,7 +272,7 @@ export default function Home() {
             <h1 className='text-5xl font-bold text-center'>{TextBody.project[0]}</h1>
           </div>
 
-          <div className='grid '>
+          <div className='grid md:grid-cols-2'>
             {projects.map((project, index) => (
               <div key={index} className=' relative  w-fit mx-auto my-14'>
                 <Link href={project.url}>
